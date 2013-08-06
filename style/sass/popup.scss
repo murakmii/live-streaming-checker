@@ -769,7 +769,9 @@ $viewerBodyHeight: $viewerHeight - ( $viewerHeaderHeight + $viewerFooterHeight )
    h1 {
       font-size: 16px;
       line-height: 32px;
+      padding-right: 7px;
       -webkit-box-flex: 1;
+      -webkit-box-sizing: border-box;
 
       span.badge {
          font-size: 11px;

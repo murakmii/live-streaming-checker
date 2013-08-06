@@ -21,7 +21,7 @@ class GroupListItem extends Backbone.View
       @_count  = core.Storage.countLive @_gid
 
       # テンプレートを取得
-      tpl = document.getElementById( "group-status-tpl" ).content
+      tpl = document.getElementById( "group-list-item-tpl" ).content
       $( tpl.querySelector ".title" ).text options.group.getName( )
       if @_count > 0
          $( tpl.querySelector "p" ).text i18n( "group_live_status", [ @_count ] )

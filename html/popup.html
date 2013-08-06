@@ -25,22 +25,10 @@
       <template id="group-item-tpl">
          <i></i>
          <div>
-            <h2></h2>
+            <h2 class="omit"></h2>
             <div>
                <h3></h3>
                <a tabindex="-1" class="remove"></a>
-            </div>
-         </div>
-      </template>
-
-      <template id="group-status-tpl">
-         <i></i>
-         <div>
-            <h3><span class="badge">Live</span><span class="title"><!-- タイトル --></span></h3>                     
-            <div class="info">
-               <p><!-- 配信状況 --></p>
-               <div class="spacer"></div>
-               <a target="_blank" tabindex="-1"><!-- 視聴ページへ --></a>
             </div>
          </div>
       </template>
@@ -55,11 +43,23 @@
          </div>
       </template>
 
+      <template id="group-list-item-tpl">
+         <i></i>
+         <div>
+            <h3 class="omit"><span class="badge">Live</span><span class="title"><!-- タイトル --></span></h3>                     
+            <div class="info">
+               <p><!-- 配信状況 --></p>
+               <div class="spacer"></div>
+               <a target="_blank" tabindex="-1"><!-- 視聴ページへ --></a>
+            </div>
+         </div>
+      </template>
+
       <template id="group-viewer-item-tpl">
          <div class="badge"></div>
          <i></i>
          <div>
-            <h3></h3>
+            <h3 class="omit"></h3>
             <h4></h4>
          </div>
       </template>
@@ -151,7 +151,7 @@
          <div>
             <form name="viewer_header" id="viewer-header">
                <i></i>
-               <h1><span class="badge">Live</span><span class="title"><!-- タイトル --></span></h1>                     
+               <h1 class="omit"><span class="badge">Live</span><span class="title"><!-- タイトル --></span></h1>                     
                <button type="button" name="close" tabindex="-1"></button>
             </form>
             <div id="viewer-body">
