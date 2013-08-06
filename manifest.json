@@ -1,0 +1,52 @@
+{
+   "manifest_version": 2,
+
+   "name"            : "Live Streaming Checker",
+   "version"         : "1.0.0",
+   "default_locale"  : "ja",
+   "description"     : "__MSG_description__",
+
+   "icons": {
+      "16": "/image/icon.png",
+      "48": "/image/icon.png"
+   },
+
+   "browser_action": {
+      "default_icon" : {
+         "19": "/image/icon.png",
+         "38": "/image/icon.png"
+      },
+      "default_title": "Live Streaming Checker",
+      "default_popup": "/html/popup.html"
+   },
+
+   "options_page": "/html/options.html",
+
+   "background": {
+      "persistent"   : true,
+      "scripts"      : [ 
+         "/src/js/core/define.js",
+         "/src/js/core/util.js",
+         "/src/js/core/broadcasting_info.js",
+         "/src/js/core/group.js",
+         "/src/js/core/notifier.js",
+         "/src/js/core/api/api.js",
+         "/src/js/core/api/ustream_api.js",
+         "/src/js/core/storage.js",
+         "/src/js/core/updater.js",
+         "/src/js/core/notifier.js",
+         "/src/js/core/observer.js",
+         "/src/js/core/uivalue.js",
+         "/src/js/core/main.js"
+      ]
+   },
+
+   "permissions": [
+      "storage",
+      "alarms",
+      "notifications",
+      "tabs",
+      "http://*/",
+      "https://*/"
+   ]
+}

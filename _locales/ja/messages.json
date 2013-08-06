@@ -1,0 +1,193 @@
+{
+   "description": {
+      "message": "USTREAM等の配信をチェックする拡張です"
+   },
+
+   "loading_text": {
+      "message": "データを読み込んでいます"
+   },
+
+   "error_text": {
+      "message": "データの読み込みに失敗しました<br />拡張を再読み込みすることで改善する場合があります"
+   },
+
+   "reload": {
+      "message": "再読み込み"
+   },
+
+   "group_live_status": {
+      "message": "$count$件の配信がライブ中",
+      "placeholders": {
+         "count": {
+            "content": "$1"
+         }
+      }
+   },
+
+   "jump": {
+      "message": "視聴ページへ"
+   },
+
+   "group_offline_status": {
+      "message": "オフライン"
+   },
+
+   "remove": {
+      "message": "削除"
+   },
+
+   "confirm": {
+      "message": "本当に削除しますか?"
+   },
+
+   "header_button": {
+      "message": "追加"
+   },
+
+   "create_group": {
+      "message": "グループの新規作成"
+   },
+
+   "edit_group": {
+      "message": "グループの編集"
+   },
+
+   "group_name": {
+      "message": "グループ名"
+   },
+
+   "group_icon": {
+      "message": "クリックでグループのアイコンに設定します"
+   },
+
+   "search": {
+      "message": "検索"
+   },
+
+   "main_tab": {
+      "message": "基本設定"
+   },
+
+   "link_tab": {
+      "message": "リンク設定"
+   },
+
+   "link_config": {
+      "message": "配信を特定のWebページで視聴したい場合、URLを設定していればグループと一緒にそのページへのリンクが表示されます"
+   },
+
+   "link_config_label": {
+      "message": "WebページのURLを設定する"
+   },
+
+   "cancel": {
+      "message": "キャンセル"
+   },
+
+   "save": {
+      "message": "保存"
+   },
+
+   "change": {
+      "message": "変更"
+   },
+
+   "edit": {
+      "message": "編集"
+   },
+
+   "network_error": {
+      "message": "ネットワークエラーが発生しました"
+   },
+
+   "save_error": {
+      "message": "グループの保存に失敗しました"
+   },
+
+   "remove_error": {
+      "message": "グループの削除に失敗しました"
+   },
+
+   "live_now": {
+      "message": "$name$がライブ中です!",
+      "placeholders": {
+         "name": {
+            "content": "$1"
+         }
+      }
+   },
+
+   "other_live_groups": {
+      "message": "他$count$グループもライブを開始しました",
+      "placeholders": {
+         "count": {
+            "content": "$1"
+         }
+      } 
+   },
+
+   "live_in": {
+      "message": "$count$サービスで配信中",
+      "placeholders": {
+         "count": {
+            "content": "$1"
+         }
+      } 
+   },
+
+   "view_on_optional": {
+      "message": "視聴ページで視聴する"
+   },
+
+   "view_on_service": {
+      "message": "$api$で$name$を視聴する",
+      "placeholders": {
+         "api": {
+            "content": "$1"
+         },
+         "name": {
+            "content": "$2"
+         }
+      }
+   },
+
+   "ustream": {
+      "message": "USTREAM"
+   },
+
+   "ustream_search_box": {
+      "message": "チャンネル名"
+   },
+
+   "ustream_not_found": {
+      "message": "配信情報が見つかりませんでした"
+   },
+
+   "ustream_search_error": {
+      "message": "情報取得中にエラーが発生しました"
+   },
+
+   "option_basic": {
+      "message": "基本設定"
+   },
+
+   "option_about": {
+      "message": "この拡張について"
+   },
+
+   "option_do_notify": {
+      "message": "グループがライブ中になった時にデスクトップに通知する"
+   },
+
+   "option_about_description": {
+      "message": "この拡張は<a href=\"https://twitter.com/bonon0\" target=\"_blank\">@bonon0</a>によって作成されています。<br />拡張に関する質問等はTwitterかE-Mail(<b>bonono.jp@gmail.com</b>)でお願いします。<br />ソースコードはgithubにて公開しています。気になる方はそちらも参照ください。"
+   },
+
+   "option_thanks": {
+      "message": "謝辞"
+   },
+
+   "option_thanks_description": {
+      "message": "この拡張の作成にあたって次のリソース・ライブラリを使用させていただきました。<br />製作者の方に深く感謝致します。"
+   }
+}

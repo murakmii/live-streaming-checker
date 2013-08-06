@@ -1,0 +1,123 @@
+@charset "utf-8";
+
+* {
+   font-family: 'メイリオ';
+   padding: 0;
+   margin: 0;
+}
+
+$bodyWidth: 1100px;
+$sidebarWidth: 170px;
+
+a {
+   color: #4787ED;
+   font-weight: bold;
+   text-decoration: none;
+
+   &:hover {
+      color: #236BB2;
+   }
+}
+
+p {
+   color: #444;
+   font-size: 13px;
+   line-height: 2;
+}
+
+body {
+   width: $bodyWidth;
+   margin: 0 auto;
+}
+
+h1 {
+   line-height: 42px;
+   font-size: 20px;
+   font-weight: normal;
+   padding: 10px 0;
+   border-bottom: solid 1px #F1F1F1;
+
+   img {
+      width: 42px;
+      height: 42px;
+      vertical-align: top;
+   }
+}
+
+#content {
+   margin-top: 20px;
+}
+
+#sidebar {
+   width: $sidebarWidth;
+   list-style-type: none;
+   float: left;
+
+   li {
+      padding: 13px 3px;
+      font-size: 14px;
+      font-weight: bold;
+
+      &:not( :last-child ) {
+         border-bottom: solid 1px #F1F1F1;
+      }
+
+      &:hover {
+         color: #0E68AE;
+         cursor: pointer;
+      }
+
+      &.selected {
+         color: #0E68AE;
+      }
+   }
+}
+
+#body {
+   width: $bodyWidth - $sidebarWidth - 40px;
+   padding-top: 15px;
+   float: right;
+
+   > div {
+      &.selected {
+         display: block;
+      }
+
+      &:not( .selected ) {
+         display: none;
+      }
+
+      h2 {
+         font-size: 30px;
+         font-weight: normal;
+         margin-bottom: 30px;
+      }
+   }
+}
+
+#tab-basic {
+   label {
+      font-size: 13px;
+   }
+}
+
+#tab-about {
+   h3 {
+      font-size: 20px;
+      font-weight: normal;
+      margin: 20px 0 13px 0;
+   }
+
+   ul {
+      padding: 10px 30px;
+
+      li {
+         font-size: 13px;
+         padding: 3px 0; 
+      }
+   }
+}
+
+.clear {
+   clear: both;
+}

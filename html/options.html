@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Live Streaming Checker - Settings</title>
+      <meta charset="utf-8" />
+      <link rel="stylesheet" href="/style/css/options.css" />
+      <script type="text/javascript" src="/lib/jquery-2.0.2.js"></script>
+      <script type="text/javascript" src="/src/js/options/main.js"></script>
+   </head>
+   <body>
+      <h1>
+         <img src="/image/notify.png" />
+         <span>Live Streaming Checker Settings</span>
+      </h1>
+      <div id="content">
+         <ul id="sidebar">
+            <li data-tab="basic" class="selected localized" data-localize-key="option_basic"><!-- 基本設定 --></li>
+            <li data-tab="about" class="localized" data-localize-key="option_about"><!-- この拡張について --></li>
+         </ul>
+         <div id="body">
+            <div id="tab-basic" class="selected">
+               <h2 class="localized" data-localize-key="option_basic"><!-- 基本設定 --></h2>
+               <form name="basic">
+                  <input type="checkbox" name="do_notify" id="label-basic-do-notify" />
+                  <label for="label-basic-do-notify" class="localized" data-localize-key="option_do_notify"><!-- グループがライブ中になった時にデスクトップに通知する --></label>
+               </form>
+            </div>
+            <div id="tab-about">
+               <h2 class="localized" data-localize-key="option_about"><!-- この拡張について --></h2>
+               <p class="localized" data-localize-key="option_about_description">
+                  <!--この拡張は<a href="https://twitter.com/bonon0" target="_blank">@bonon0</a>によって作成されています。<br />
+                  拡張に関する質問等はTwitterかE-Mail(<b>bonono.jp@gmail.com</b>)でお願いします。<br />
+                  ソースコードはgithubにて公開しています。気になる方はそちらも参照ください。-->
+               </p>
+               <h3 class="localized" data-localize-key="option_thanks"><!-- 謝辞 --></h3>
+               <p class="localized" data-localize-key="option_thanks_description">
+                  <!--この拡張の作成にあたって次のリソース・ライブラリを使用させていただきました。<br />
+                  製作者の方に深く感謝致します。-->
+               </p>
+               <ul>
+                  <li><b>jQuery</b> - <a href="http://jquery.com/" target="_blank">http://jquery.com/</a></li>
+                  <li><b>jQuery PowerTip</b> - <a href="http://stevenbenner.github.io/jquery-powertip/" target="_blank">http://stevenbenner.github.io/jquery-powertip/</a></li>
+                  <li><b>Underscore.js</b> - <a href="http://underscorejs.org/" target="_blank">http://underscorejs.org/</a></li>
+                  <li><b>Backbone.js</b> - <a href="http://backbone.org/" target="_blank">http://backbone.org/</a></li>
+                  <li><b>Iconic</b> - <a href="http://somerandomdude.com/work/iconic/" target="_blank">http://somerandomdude.com/work/iconic/</a></li>
+                  <li><b>The Noun Project</b> - <a href="http://thenounproject.com/ja/noun/television/#icon-No416" target="_blank">http://thenounproject.com/ja/noun/television/#icon-No416</a></li>
+               </ul>
+            </div>
+         </div>
+         <div class="clear"></div>
+      </div>
+   </body>
+</html>

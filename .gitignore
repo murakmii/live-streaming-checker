@@ -1,0 +1,5 @@
+.DS_Store
+style/.sass-cache/*
+style/css/*
+src/js/*
+

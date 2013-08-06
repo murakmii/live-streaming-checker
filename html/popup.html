@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8" />
+      <link rel="stylesheet" href="/style/css/popup.css" />
+      <link rel="stylesheet" href="/style/css/jquery.powertip.css" />
+      <script type="text/javascript" src="/lib/jquery-2.0.2.js"></script>
+      <script type="text/javascript" src="/lib/jquery.powertip.js"></script>
+      <script type="text/javascript" src="/lib/underscore-1.4.4.js"></script>
+      <script type="text/javascript" src="/lib/backbone-1.0.0.js"></script>
+
+      <script type="text/javascript" src="/src/js/ui/util.js"></script>
+      <script type="text/javascript" src="/src/js/ui/view/modal_dialog.js"></script>
+      <script type="text/javascript" src="/src/js/ui/view/header.js"></script>
+      <script type="text/javascript" src="/src/js/ui/view/group_editor.js"></script>
+      <script type="text/javascript" src="/src/js/ui/view/group_item.js"></script>
+      <script type="text/javascript" src="/src/js/ui/view/group_viewer.js"></script>
+      <script type="text/javascript" src="/src/js/ui/view/group_viewer_item.js"></script>
+      <script type="text/javascript" src="/src/js/ui/view/group_list.js"></script>
+      <script type="text/javascript" src="/src/js/ui/view/group_list_item.js"></script>
+      <script type="text/javascript" src="/src/js/ui/main.js"></script>
+   </head>
+   <body>
+
+      <template id="group-item-tpl">
+         <i></i>
+         <div>
+            <h2></h2>
+            <div>
+               <h3></h3>
+               <a tabindex="-1" class="remove"></a>
+            </div>
+         </div>
+      </template>
+
+      <template id="group-status-tpl">
+         <i></i>
+         <div>
+            <h3><span class="badge">Live</span><span class="title"><!-- タイトル --></span></h3>                     
+            <div class="info">
+               <p><!-- 配信状況 --></p>
+               <div class="spacer"></div>
+               <a target="_blank" tabindex="-1"><!-- 視聴ページへ --></a>
+            </div>
+         </div>
+      </template>
+
+      <template id="group-list-tpl">
+         <div class="header">
+            <div class="arrow"><div></div></div>
+            <h2 class=""></h2>
+         </div>
+         <div class="list">
+            <h3 class="no-group">NO GROUP</h3> 
+         </div>
+      </template>
+
+      <template id="group-viewer-item-tpl">
+         <div class="badge"></div>
+         <i></i>
+         <div>
+            <h3></h3>
+            <h4></h4>
+         </div>
+      </template>
+
+      <!-- モーダルダイアログ -->
+      <div id="modal-shadow" class="shadow"></div>
+      <div id="modal">
+         <div>
+            <p></p>
+            <form name="modal" id="modal-footer">
+               <button class="gray-button yesno" type="button" data-result="yes">はい</button>
+               <button class="gray-button yesno" type="button" data-result="no">いいえ</button>
+               <button class="blue-button ok" type="button" data-result="ok">OK</button>
+            </form>
+         </div>
+      </div>
+
+      <!-- グループ作成 -->
+      <div id="group-shadow" class="shadow"></div>
+      <div id="group">
+         <div>
+            <form id="group-header" name="group_header">
+               <h1><!-- グループの作成/編集 --></h1>
+               <button type="button" name="cancel" tabindex="-1"></button>
+            </form>
+            <div id="group-body">
+
+               <ul id="group-tab">
+                  <li data-tab="main"><!-- 基本設定 --></li>
+                  <li data-tab="link"><!-- リンク設定 --></li>
+               </ul>
+
+               <div id="group-config-main">
+                  <div>
+                     <form name="main_config_header" id="main-config-header">
+                        <i></i>
+                        <div>
+                           <b><!-- グループ名 --></b>
+                           <input class="textbox" type="text" name="name" tabindex="-1"/>
+                        </div>
+                     </form>
+                     <div id="main-config-body">
+                        <div>
+                           <div id="main-config-items">
+                              <!--
+                                 <div class="stream">...</div>
+                              -->
+                           </div>
+                        </div>
+                     </div>
+                     <form name="main_config_footer" id="main-config-footer">
+                        <div class="form">
+                           <select name="api" tabindex="-1">
+                              <!-- ここに対応しているサービスの一覧を追加 --> 
+                           </select>
+                           <input class="textbox" type="text" name="id" tabindex="-1" />
+                           <button class="blue-button" type="button" name="search" tabindex="-1" disabled><!-- 検索 --></button>
+                        </div>
+                        <div class="loading">
+                           <img src="/image/searching.gif" />
+                        </div>
+                     </form>
+                  </div>
+               </div>
+
+               <div id="group-config-link">
+                  <p class="localized" data-localize-key="link_config">
+                     <!-- リンク設定の説明文 --> 
+                  </p>
+                  <form name="link_config" id="link-config">
+                     <input type="checkbox" name="enable" id="label-enable" tabindex="-1" />
+                     <label for="label-enable" class="localized" data-localize-key="link_config_label">
+                        <!-- ラベル文言 -->
+                     </label><br />
+                     <input type="text" name="url" class="textbox" tabindex="-1" disabled />
+                  </form>
+               </div>
+            </div>
+            <form id="group-footer" name="group_footer">
+               <button type="button" name="cancel" class="gray-button" tabindex="-1"><!-- キャンセル --></button>
+               <button type="button" name="commit" tabindex="-1"><!--保存/変更--></button>
+            </form>  
+         </div>
+      </div>
+
+      <!-- グループの詳細 -->
+      <div id="group-viewer-shadow" class="shadow"></div>
+      <div id="group-viewer">
+         <div>
+            <form name="viewer_header" id="viewer-header">
+               <i></i>
+               <h1><span class="badge">Live</span><span class="title"><!-- タイトル --></span></h1>                     
+               <button type="button" name="close" tabindex="-1"></button>
+            </form>
+            <div id="viewer-body">
+               <!-- ここにグループの持つ各配信状況を追加 -->
+            </div>
+            <form name="viewer_footer" id="viewer-footer">
+               <div class="spacer"></div>
+               <button type="button" name="remove" class="red-button" tabindex="-1"><!-- 削除 --></button> 
+               <button type="button" name="edit" class="gray-button" tabindex="-1"><!-- 編集 --></button>
+            </form>
+         </div>
+      </div>
+
+      <!-- ローディング画面 -->
+      <div id="loading">
+         <img src="/image/loading.gif" />
+         <p id="loading-text"><!-- 読み込み中テキスト --></p>
+      </div>
+
+      <!-- バックグランドにてデータを正しく読み込めなかった場合に表示 -->
+      <div id="error" data-display="-webkit-box">
+         <img src="/image/error.png" />
+         <p id="error-text"><!-- エラー時テキスト --></p>
+         <a id="reload"><!-- 再読み込み --></a>
+      </div>
+
+      <div id="main" data-display="block">
+         <!-- ヘッダ -->
+         <form id="header" name="header">
+            <h1 class="omit">Live Streaming Checker</h1>
+            <button type="button" name="add" class="blue-button" tabindex="-1"><!-- 追加 --></button>
+         </form>
+
+         <!-- グループ表示領域 -->
+         <div id="content">
+
+         </div>
+      </div>
+   </body>
+</html>
+
