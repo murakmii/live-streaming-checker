@@ -34,4 +34,9 @@ class GroupViewerItem extends Backbone.View
 
       @el.appendChild tpl.cloneNode( true )
 
+      $( @el ).data( 'powertip', @_broadcasting.getName( ) ).powerTip
+         placement: "s"
+         intentPollInterval: 300
+         closeDelay: 50
+
 @ui.view.GroupViewerItem = GroupViewerItem
