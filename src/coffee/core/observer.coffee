@@ -31,15 +31,21 @@ class Observer
       after_stat = core.Storage.getGroupLiveStatus( )
 
       # 更新前にはライブではなかったが、更新後にライブになったグループを調べる
-      started = [ ]
+      started  = [ ]
+      offlined = false
       for gid, live of before_stat
          if not live and after_stat[ gid ] is true
             started.push gid
+         else if live is true and after_stat[ gid ] is false
+            offlined = true
 
       # ライブになったグループがある場合はもろもろ更新・通知を行う
       if started.length > 0
          core.Notifier.notifyLive started
          core.Notifier.notifyBadge( )
          chrome.runtime.sendMessage type: core.UpdatedMessage
+      else if offlined
+         # ライブになったグループがなくてもオフラインになったグループがある場合はバッジを更新する
+         core.Notifier.notifyBadge( )
 
 @core.Observer = Observer
