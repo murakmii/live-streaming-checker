@@ -204,7 +204,7 @@
    },
 
    "option_about_description": {
-      "message": "この拡張は<a href=\"https://twitter.com/bonon0\" target=\"_blank\">@bonon0</a>によって作成されています。<br />拡張に関する質問等はTwitterかE-Mail(<b>bonono.jp@gmail.com</b>)でお願いします。<br />ソースコードはgithubにて公開しています。気になる方はそちらも参照ください。"
+      "message": "この拡張は<a href=\"https://twitter.com/bonon0\" target=\"_blank\">@bonon0</a>によって作成されています。<br />拡張に関する質問等はTwitterかE-Mail(<b>bonono.jp@gmail.com</b>)でお願いします。<br />ソースコードは<a href=\"https://github.com/bonono/live-streaming-checker\" target=\"_blank\">githubにて公開</a>しています。気になる方はそちらもご参照ください。"
    },
 
    "option_thanks": {
