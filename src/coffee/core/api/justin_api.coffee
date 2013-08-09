@@ -78,11 +78,11 @@ class JustinApi extends core.api.Api
                      core.Updater.updated API_NAME, id, chobj[ id ]
                   else
                      # レスポンスが得られなかったIDはオフラインなので既に保持しているチャンネル情報を取得しライブ中フラグを折る
-                     info = core.Storage.getBroadcastingInfo( API_NAME, id ).setLive false
-                     core.Updater.updated API_NAME, id, info
+                     core.Updater.updated API_NAME, id, core.Storage.getBroadcastingInfo( API_NAME, id ).setLive( false )
                   
             else
-               core.Updater.updated API_NAME, id for id in ids
+               for id in ids
+                  core.Updater.updated API_NAME, id, core.Storage.getBroadcastingInfo( API_NAME, id ).setLive( false )
 
    @endUpdate: ( timestamp ) -> JustinApi.update timestamp, null
 

@@ -28,12 +28,12 @@ class UstreamApi extends core.api.Api
             if success
                json = JSON.parse xhr.responseText
                if json.error
-                  core.Updater.updated API_NAME, id
+                  core.Updater.updated API_NAME, id, core.Storage.getBroadcastingInfo( API_NAME, id ).setLive( false )
                else
                   core.Updater.updated API_NAME, id, UstreamApi._resultToObject( json.results )
                   UstreamApi._updateEach ids
             else
-               core.Updater.updated API_NAME, id
+               core.Updater.updated API_NAME, id, core.Storage.getBroadcastingInfo( API_NAME, id ).setLive( false )
 
    @search: ( id, fn ) ->
       id = id.split( ";" )[ 0 ] # セミコロンは実質使用不可とする
@@ -63,7 +63,7 @@ class UstreamApi extends core.api.Api
                   if ids.length > 1
                      UstreamApi._updateEach ids
                   else
-                     core.Updater.updated API_NAME, ids[ 0 ]
+                     core.Updater.updated API_NAME, ids[ 0 ], core.Storage.getBroadcastingInfo( API_NAME, ids[ 0 ] ).setLive( false )
                else
                   if ids.length > 1
                      for e in json.results
@@ -72,7 +72,8 @@ class UstreamApi extends core.api.Api
                   else
                      core.Updater.updated API_NAME, ids[ 0 ], UstreamApi._resultToObject( json.results )
             else
-               core.Updater.updated API_NAME, id for id in ids
+               for id in ids
+                  core.Updater.updated API_NAME, id, core.Storage.getBroadcastingInfo( API_NAME, id ).setLive( false )
       
    @endUpdate: ( timestamp ) -> UstreamApi.update timestamp, null
 
