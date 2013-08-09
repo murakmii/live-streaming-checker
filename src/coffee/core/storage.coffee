@@ -187,7 +187,8 @@ class Storage
 
          # 配信情報を厳密に比較し、変更点がある場合は内部データの更新と書き込みフラグをON
          if _broadcasting[ api_name ][ id ]? and not b.isStrictlyEqual _broadcasting[ api_name ][ id ]
-            written[ id ] = _broadcasting[ api_name ][ id ] = b.clone( )
+            _broadcasting[ api_name ][ id ] = b.clone( )
+            written[ _broadcasting[ api_name ][ id ].getStorageKey( ) ] = _broadcasting[ api_name ][ id ].toObject( )
             need_write = true
          else
             _broadcasting[ api_name ][ id ] = b.clone( ) # 変更点がない場合は内部データの更新のみ
