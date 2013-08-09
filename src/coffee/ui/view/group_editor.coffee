@@ -21,6 +21,7 @@ class GroupEditor extends Backbone.View
       "submit #main-config-header"        : "_onSubmitedGroupName"
 
       "click #main-config-footer button"  : "_onClickedSearch"
+      "change #main-config-footer select" : "_onChangedApi"
       "submit #main-config-footer"        : "_onSubmitedSearch"
 
       "click #group-tab li"               : "_onClickedTab"
@@ -69,6 +70,10 @@ class GroupEditor extends Backbone.View
    _onSubmitedSearch: ( e ) ->
       e.preventDefault( )
       @_onClickedSearch( ) if document.main_config_footer.id.value.length > 0
+
+   _onChangedApi: ( ) ->
+      default_text = i18n "#{document.main_config_footer.api.value}_search_box"
+      ui.Util.setDefaultText document.main_config_footer.id, default_text
 
    # 検索の実行
    _onClickedSearch: ( ) ->

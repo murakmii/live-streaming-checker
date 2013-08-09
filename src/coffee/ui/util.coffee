@@ -17,7 +17,8 @@ class Util
             $( @ ).addClass className
             @value = @dataset.defaultText
 
-      $( textbox ).trigger "blur"
+      if $( textbox ).hasClass className
+         textbox.value = defaultText
 
 @ui ?= { }
 @ui.Util = Util
