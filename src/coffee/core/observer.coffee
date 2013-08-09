@@ -8,8 +8,7 @@ class Observer
       # 定期的に更新をチェックするアラームを仕込む
       chrome.alarms.onAlarm.addListener ( alm ) -> Observer.exec( ) if alm.name is "observer"
       chrome.alarms.create "observer",
-         delayInMinutes    : core.UpdateInterval / ( 60 * 1000 )
-         periodInMinutes   : core.UpdateInterval / ( 60 * 1000 )
+         periodInMinutes: core.UpdateInterval / ( 60 * 1000 )
 
       # グループの追加・削除が行われた場合にバッジを更新する
       chrome.runtime.onMessage.addListener ( msg, sender ) ->

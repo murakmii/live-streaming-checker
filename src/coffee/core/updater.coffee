@@ -42,8 +42,10 @@ class Updater
       # アラームを設定して定期的にアップデートされるようにする
       chrome.alarms.onAlarm.addListener ( alm ) -> Updater.exec( ) if alm.name is "updater"
       chrome.alarms.create "updater",
-         delayInMinutes    : CHECK_INTERVAL / ( 60 * 1000 )
          periodInMinutes   : CHECK_INTERVAL / ( 60 * 1000 )
+
+      chrome.alarms.create "test", periodInMinutes: 1
+      chrome.alarms.onAlarm.addListener ( alm ) -> console.log "1 minutes" if alm.name is "test"
 
       # グループが変更された際に更新ステータスを初期化する
       chrome.runtime.onMessage.addListener ( msg, sender ) ->
@@ -57,6 +59,7 @@ class Updater
    @exec: ( ) ->
       now = +new Date
       api_class_name = null
+      console.log "update: " + ( new Date )
 
       # アップデートが必要な配信情報のみを処理
       for b in Updater._getUpdateNeeded now
