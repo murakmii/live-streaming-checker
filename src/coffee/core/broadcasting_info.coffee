@@ -11,10 +11,10 @@ class BroadcastingInfo
       @_live      = false
 
    getId: ( ) -> @_id
-   setId: ( @_id ) ->
+   setId: ( @_id ) -> return @
 
    getApiName: ( ) -> @_apiName
-   setApiName: ( @_apiName ) -> 
+   setApiName: ( @_apiName ) -> return @
 
    isEqual: ( target ) -> @_id is target.getId( ) and @_apiName is target.getApiName( )
 
@@ -32,19 +32,19 @@ class BroadcastingInfo
       return equal
 
    getName: ( ) -> @_name
-   setName: ( @_name ) ->
+   setName: ( @_name ) -> return @
 
    getUrl: ( ) -> @_url
-   setUrl: ( @_url ) ->
+   setUrl: ( @_url ) -> return @
 
-   setImageUrl: ( @_imgUrl ) ->
+   setImageUrl: ( @_imgUrl ) -> return @
    getImageUrl: ( ) -> @_imgUrl
    hasImageUrl: ( ) -> @_imgUrl.length isnt 0
 
-   setLive: ( @_live ) ->
+   setLive: ( @_live ) -> return @
    isLive: ( ) -> @_live
 
-   clone: ( ) -> 
+   clone: ( ) ->
       cloned = BroadcastingInfo.fromObject @toObject( )
       cloned.setLive @isLive( )
       return cloned
