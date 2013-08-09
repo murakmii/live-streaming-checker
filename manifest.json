@@ -34,6 +34,7 @@
          "/src/js/core/api/ustream_api.js",
          "/src/js/core/api/justin_api.js",
          "/src/js/core/api/twitch_api.js",
+         "/src/js/core/api/stickam_api.js",
          "/src/js/core/storage.js",
          "/src/js/core/updater.js",
          "/src/js/core/notifier.js",

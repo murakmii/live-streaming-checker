@@ -191,6 +191,14 @@
       "message": "そのチャンネルはTwitchで有効ではありません"
    },
 
+   "stickam": {
+      "message": "Stickam"
+   },
+
+   "stickam_search_box": {
+      "message": "ユーザー名"
+   },
+
    "option_basic": {
       "message": "基本設定"
    },

@@ -36,6 +36,8 @@ class Util
 
       return "#{ts}-#{_repeated}"
 
+   @isSegment: ( str ) -> str.match( /^[\w\-\.~%!$&'\(\)\*\+,;=]+$/ ) isnt null
+
    # OS名を取得
    @getOSName: ( ) ->
       about_os = window.navigator.appVersion.match( /\([^\)]+\)/ )[ 0 ].toLowerCase( )
