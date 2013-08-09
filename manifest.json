@@ -32,6 +32,7 @@
          "/src/js/core/notifier.js",
          "/src/js/core/api/api.js",
          "/src/js/core/api/ustream_api.js",
+         "/src/js/core/api/justin_api.js",
          "/src/js/core/storage.js",
          "/src/js/core/updater.js",
          "/src/js/core/notifier.js",

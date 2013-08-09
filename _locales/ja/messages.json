@@ -167,6 +167,18 @@
       "message": "情報取得中にエラーが発生しました"
    },
 
+   "justin": {
+      "message": "Justin"
+   },
+
+   "justin_search_box": {
+      "message": "チャンネル名Jus!"
+   },
+
+   "justin_invalid_char": {
+      "message": "\".\", \"/\", \"?\", \"#\"を使用することはできません"
+   },
+
    "option_basic": {
       "message": "基本設定"
    },
