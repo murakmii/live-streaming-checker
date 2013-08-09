@@ -1,7 +1,7 @@
 "use strict"
 
 @core =
-   Supported: [ "ustream", "justin" ]
+   Supported: [ "ustream", "justin", "twitch" ]
 
    UpdateInterval : 3 * 60 * 1000
 
