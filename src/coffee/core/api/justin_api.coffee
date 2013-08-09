@@ -1,5 +1,7 @@
 "use strict"
 
+i18n = chrome.i18n.getMessage
+
 API_NAME = "justin"
 PARARELL_REQUEST_SIZE = 20
 
@@ -49,7 +51,7 @@ class JustinApi extends core.api.Api
                   else
                      fn( false, i18n "network_error" )
          else
-            fn( false, i18n "network_error" )
+            fn( false, i18n if xhr.status is 404 then "ustream_not_found" else "network_error" )
 
    @standbyUpdate: ( timestamp ) -> _requestId = [ ]
 
