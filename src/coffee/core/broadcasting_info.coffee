@@ -37,7 +37,10 @@ class BroadcastingInfo
    getUrl: ( ) -> @_url
    setUrl: ( @_url ) -> return @
 
-   setImageUrl: ( @_imgUrl ) -> return @
+   setImageUrl: ( @_imgUrl ) ->
+      @_imgUrl = "" unless @_imgUrl?
+      return @
+
    getImageUrl: ( ) -> @_imgUrl
    hasImageUrl: ( ) -> @_imgUrl.length isnt 0
 
