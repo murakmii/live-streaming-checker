@@ -9,7 +9,7 @@ $ ->
       unless $( e ).hasClass "selected"
          $( "#sidebar li" ).removeClass "selected"
          $( "#body > div" ).removeClass "selected"
-         $( e ).addClass "selected"
+         $( e.target ).addClass "selected"
          $( "#tab-#{e.target.dataset.tab}" ).addClass "selected"
 
    # ローカライズを行う
