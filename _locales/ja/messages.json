@@ -199,6 +199,14 @@
       "message": "ユーザー名"
    },
 
+   "twitcasting": {
+      "message": "Twitcasting"
+   },
+
+   "twitcasting_search_box": {
+      "message": "ユーザー名"
+   },
+
    "option_basic": {
       "message": "基本設定"
    },
