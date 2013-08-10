@@ -5,7 +5,7 @@ i18n = chrome.i18n.getMessage
 
 $ =>
    # UI構築
-   instance = 
+   instance =
       header   : new ui.view.Header
       editor   : new ui.view.GroupEditor
       viewer   : new ui.view.GroupViewer
@@ -15,7 +15,7 @@ $ =>
    # メッセージ受信時のイベントハンドラを設定する
    # 受信時にグループの表示更新を行う
    onMessage = ( msg, sender ) ->
-      displayGroup.call instance if sender.id is chrome.runtime.id 
+      displayGroup.call instance if sender.id is chrome.runtime.id
       if msg.type is core.UpdatedMessage and instance.viewer.isShown( )
          instance.viewer.view instance.viewer.getShownGroupId( )
 
@@ -26,8 +26,12 @@ $ =>
    # モーダルダイアログを初期化
    ui.view.ModalDialog.init( )
 
-   # ヘッダーのイベントハンドラ設定
+   # ヘッダのイベントハンドラ設定
    instance.header.bind "editgroup", onClickedHeaderEdit, instance
+
+   # フッタのオプションページへのリンク先を設定
+   ( new Image ).src = "/image/options_hover.png"
+   $( "#footer a" ).attr "href", "chrome-extension://#{chrome.runtime.id}/html/options.html"
 
    # グループエディタのイベントハンドラ設定
    instance.editor.bind "cancel", ( ) -> instance.editor.hide( )

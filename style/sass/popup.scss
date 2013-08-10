@@ -139,6 +139,9 @@ body {
 $popupWidth    : 350px;
 $popupHeight   : 550px;
 
+$headerHeight: 40px;
+$footerHeight: 30px;
+
 #loading {
    width: $popupWidth + 2;
    height: $popupHeight + 2;
@@ -204,7 +207,7 @@ $popupHeight   : 550px;
 }
 
 #header {
-   height: 40px;
+   height: $headerHeight;
    background-color: #F1F1F1;
    border-bottom: solid 1px #E1E1E1;
    -webkit-box-sizing: border-box;
@@ -228,7 +231,7 @@ $popupHeight   : 550px;
 
 #content {
    width: 100%;
-   height: 510px;
+   height: $popupHeight - $headerHeight - $footerHeight;
    padding: 9px 0;
    overflow-y: scroll;
    -webkit-box-sizing: border-box;
@@ -371,6 +374,30 @@ $popupHeight   : 550px;
          &:hover .info a.enable {
             display: block; 
          }
+      }
+   }
+}
+
+#footer {
+   height: $footerHeight - 1;
+   padding: 0 7px;
+   background-color: #F1F1F1;
+   border-top: solid 1px #E1E1E1;
+   -webkit-box-align: center;
+   -webkit-box-pack: end;
+   display: -webkit-box;
+
+   a {
+      width: 24px;
+      height: 24px;
+      background-image: url( "/image/options.png" );
+      background-position: center center;
+      background-repeat: no-repeat;
+      display: block;
+
+      &:hover {
+         background-image: url( "/image/options_hover.png" );
+         cursor: pointer;
       }
    }
 }
