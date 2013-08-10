@@ -13,7 +13,7 @@ class Updater
       for apiName, set of _status
          for id, stat of set
             if now - stat.lastUpdated >= core.UpdateInterval and not stat.updating
-               needed.push apiName: apiName, id: id 
+               needed.push apiName: apiName, id: id
 
       return needed
 
@@ -29,9 +29,9 @@ class Updater
                inited[ apiName ][ id ] = _status[ apiName ][ id ]
             else
                # 存在しない場合はデフォルトの値をセット
-               inited[ apiName ][ id ] = 
+               inited[ apiName ][ id ] =
                   lastUpdated : 0
-                  updating    : false 
+                  updating    : false
 
       _status = inited
 

@@ -12,17 +12,17 @@ chrome.notifications.onClosed.addListener ( nid ) ->
 # ボタンがクリックされた際に保持しているボタン情報からページを開く
 chrome.notifications.onButtonClicked.addListener ( nid, index ) ->
    if _shown[ nid ]?
-      chrome.tabs.create url: _shown[ nid ][ index ] 
+      chrome.tabs.create url: _shown[ nid ][ index ]
 
 # デスクトップへの通知を行う
-class Notifier 
+class Notifier
 
    # 複数のグループから通知対象としてふさわしいグループを選択するメソッド
    @_selectNotifiedGroup: ( groups ) ->
       notified = null
       for g in groups
          if g.configuredThumbnail( )
-            notified = g 
+            notified = g
             break
 
       return if notified? then notified else groups[ 0 ]
@@ -48,7 +48,7 @@ class Notifier
 
    # HTML5標準の通知機能を用いる
    @_legacy: ( groups ) ->
-      notified = Notifier._selectNotifiedGroup groups      
+      notified = Notifier._selectNotifiedGroup groups
       if window.webkitNotifications?
          notify = webkitNotifications.createNotification(
             Notifier._selectBestIcon( notified ),
@@ -60,16 +60,16 @@ class Notifier
 
    # WindowsとChrome OSでのみ実装されている多機能な通知機能を用いる
    @_rich: ( groups ) ->
-      notified = Notifier._selectNotifiedGroup groups      
+      notified = Notifier._selectNotifiedGroup groups
 
       # 通知に表示するボタン設定
       buttons  = [ ]
-      links    = [ ] 
+      links    = [ ]
 
       # 任意のWebページが設定されている場合はそのページへのリンクを表示
       if notified.getBehavior( ) is core.Group.Behavior.Optional
          links.push notified.getOptionalLink( )
-         buttons.push 
+         buttons.push
             iconUrl  : "/image/view_optional.png"
             title    : i18n "view_on_optional"
 
