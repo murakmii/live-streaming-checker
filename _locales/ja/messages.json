@@ -1,4 +1,8 @@
 {
+   "language": {
+      "message": "ja"
+   },
+
    "description": {
       "message": "USTREAM等の配信をチェックする拡張です"
    },
@@ -211,12 +215,88 @@
       "message": "基本設定"
    },
 
+   "option_help": {
+      "message": "ヘルプ"
+   },
+
+   "option_help_first_launch": {
+      "message": "はじめての起動"
+   },
+
    "option_about": {
       "message": "この拡張について"
    },
 
    "option_do_notify": {
       "message": "グループがライブ中になった時にデスクトップに通知する"
+   },
+
+   "option_help_first_launch_description": {
+      "message": "Live Streaming Checkerでは複数の配信を1つの\"グループ\"としてまとめ、グループ内のいずれかの配信がライブ中になった際にそれを通知します。<br />起動時は何もグループが追加されていないため、右上の\"追加\"ボタンからグループを追加しましょう。<br /><img src=\"/image/option/ja/first_launch.png\" />"
+   },
+
+   "option_help_create_group": {
+      "message": "グループの作成"
+   },
+
+   "option_help_add_from_ustream": {
+      "message": "USTREAM上の配信を追加する場合"
+   },
+
+   "option_help_add_from_ustream_description": {
+      "message": "USTREAMの配信を追加する場合は、視聴ページのロケーションバーに表示されるチャンネル名で検索します。<br /><img src=\"/image/option/ja/id_for_ustream.png\" />"
+   },
+
+   "option_help_add_from_justin": {
+      "message": "Justin上の配信を追加する場合"
+   },
+
+   "option_help_add_from_justin_description": {
+      "message": "Justinの配信を追加する場合は、視聴ページのロケーションバーに表示されるチャンネル名で検索します。<br /><img src=\"/image/option/ja/id_for_justin.png\" />"
+   },
+
+   "option_help_add_from_twitch": {
+      "message": "Twitch上の配信を追加する場合"
+   },
+
+   "option_help_add_from_twitch_description": {
+      "message": "Twitchの配信を追加する場合は、視聴ページのロケーションバーに表示されるチャンネル名で検索します。<br /><img src=\"/image/option/ja/id_for_twitch.png\" />"
+   },
+
+   "option_help_add_from_stickam": {
+      "message": "Stickam JAPAN!上の配信を追加する場合"
+   },
+
+   "option_help_add_from_stickam_description": {
+      "message": "Stickam JAPAN!の配信を追加する場合は、プロフィールページのロケーションバーに表示されるユーザー名で検索します。<br /><img src=\"/image/option/ja/id_for_stickam.png\" />"
+   },
+
+   "option_help_add_from_twitcasting": {
+      "message": "Twitcasting上の配信を追加する場合"
+   },
+
+   "option_help_add_from_twitcasting_description": {
+      "message": "Twitcastingの配信を追加する場合は、視聴ページのロケーションバーに表示されるユーザー名で検索します。<br /><img src=\"/image/option/ja/id_for_twitcasting.png\" />"
+   },
+
+   "option_help_create_group_description" :{
+      "message": "\"追加\"をクリックして開いた画面でグループを作成します。<br />\"グループ名\"は必ず指定する必要があります。その他、グループには配信を1つ以上含めることができます。<br />グループに含めた配信がライブ中になると、Live Streaming Checkerはその配信を含むグループを通知します。<br />配信は次の検索フォームから検索して追加します。<br /><img src=\"/image/option/ja/broadcasting_form.png\" />"
+   },
+
+   "option_help_icon": {
+      "message": "グループのアイコンを設定する"
+   },
+
+   "option_help_icon_description": {
+      "message": "グループにはアイコンを設定することができます。<br />グループに追加されている配信が1つだけの場合は、その配信のアイコンが自動で設定されます。<br />複数の配信が追加されている場合は、アイコンをクリックすることでグループのアイコンを変更することができます。<br /><img src=\"/image/option/ja/icon_setting.png\" />"
+   },
+
+   "option_help_link": {
+      "message": "リンク設定"
+   },
+
+   "option_help_link_description": {
+      "message": "グループがライブ中になった際にあるページへ簡単に移動したい場合はグループの\"リンク設定\"タブからリンクの設定を行います。<br />ここで設定をしておくことで、グループの一覧でリンクから簡単に移動できるようになります。<img src=\"/image/option/ja/link_setting.png\" /><img src=\"/image/option/ja/link_setting_result.png\" />"
    },
 
    "option_about_description": {

@@ -101,6 +101,26 @@ h1 {
    }
 }
 
+#tab-help {
+   h3 {
+      font-size: 20px;
+      font-weight: normal;
+      margin: 20px 0 13px 0;
+   }
+
+   p {
+      img {
+         border: solid 1px #CCC;
+         margin: 20px;
+      }
+   }
+
+   h4 {
+      font-size: 16px;
+      margin: 10px 0;
+   }
+}
+
 #tab-about {
    h3 {
       font-size: 20px;
