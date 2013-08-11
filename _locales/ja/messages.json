@@ -317,6 +317,14 @@
       "message": "Twitchの配信を追加する場合は、視聴ページのロケーションバーに表示されるチャンネル名で検索します。<br /><img src=\"/image/option/ja/id_for_twitch.png\" />"
    },
 
+   "option_help_add_from_nico": {
+      "message": "ニコ生上の配信を追加する場合"
+   },
+
+   "option_help_add_from_nico_description": {
+      "message": "ニコ生の配信を追加する場合は、視聴ページのロケーションバーに表示されるコミュニティ番号で検索します。<br /><img src=\"/image/option/ja/id_for_nico.png\" />"
+   },
+
    "option_help_add_from_stickam": {
       "message": "Stickam JAPAN!上の配信を追加する場合"
    },
