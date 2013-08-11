@@ -349,6 +349,14 @@
       "message": "グループがライブ中になった際にあるページへ簡単に移動したい場合はグループの\"リンク設定\"タブからリンクの設定を行います。<br />ここで設定をしておくことで、グループの一覧でリンクから簡単に移動できるようになります。<img src=\"/image/option/ja/link_setting.png\" /><img src=\"/image/option/ja/link_setting_result.png\" />"
    },
 
+   "option_context_menu": {
+      "message": "メニューからグループを編集する"
+   },
+
+   "option_context_menu_description": {
+      "message": "検索フォームから配信を検索してグループへ追加する他に、視聴ページにてメニューから直接グループへ追加することもできます。<br />視聴ページにて右クリック等でメニューバーを表示し、一覧の\"配信をグループへ追加\"から新しいグループとして配信情報を追加するか、既存のグループへ追加するかを選択します。<br /><img src=\"/image/option/ja/context_menu.png\" />"
+   },
+
    "option_about_description": {
       "message": "この拡張は<a href=\"https://twitter.com/bonon0\" target=\"_blank\">@bonon0</a>によって作成されています。<br />拡張に関する質問等はTwitterかE-Mail(<b>bonono.jp@gmail.com</b>)でお願いします。<br />ソースコードは<a href=\"https://github.com/bonono/live-streaming-checker\" target=\"_blank\">githubにて公開</a>しています。気になる方はそちらもご参照ください。"
    },
