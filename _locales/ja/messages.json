@@ -199,6 +199,14 @@
       "message": "そのチャンネルはTwitchで有効ではありません"
    },
 
+   "nico_live": {
+      "message": "ニコ生"
+   },
+
+   "nico_live_search_box": {
+      "message": "コミュニティ番号"
+   },
+
    "stickam": {
       "message": "Stickam"
    },
