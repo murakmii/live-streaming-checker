@@ -17,3 +17,6 @@ core.Storage.init ( success ) ->
    if success
       core.Updater.init( )
       core.Observer.init( )
+      core.ContextMenu.enable( ) if core.Storage.getConfig "enable_menu"
+
+chrome.storage.local.get null, ( read ) -> console.log read

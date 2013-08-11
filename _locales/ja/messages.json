@@ -211,6 +211,44 @@
       "message": "ユーザー名"
    },
 
+   "menu_top": {
+      "message": "配信をグループへ追加"
+   },
+
+   "menu_create_group": {
+      "message": "新規グループとして作成"
+   },
+
+   "menu_add_group": {
+      "message": "\"$name$\"へ追加",
+      "placeholders": {
+         "name": {
+            "content": "$1"
+         }
+      }
+   },
+
+   "sorry": {
+      "message": "申し訳ありません!"
+   },
+
+   "menu_saved_group": {
+      "message": "グループを保存しました"
+   },
+
+   "menu_saved_group_message": {
+      "message": "\"$name$\"として保存しました。",
+      "placeholders": {
+         "name": {
+            "content": "$1"
+         }
+      }
+   },
+
+   "menu_failed_save_group": {
+      "message": "グループの保存に失敗しました。再度グループの作成を試みてください。"
+   },
+
    "option_basic": {
       "message": "基本設定"
    },

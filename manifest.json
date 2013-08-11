@@ -39,6 +39,7 @@
          "/src/js/core/storage.js",
          "/src/js/core/updater.js",
          "/src/js/core/notifier.js",
+         "/src/js/core/context_menu.js",
          "/src/js/core/observer.js",
          "/src/js/core/uivalue.js",
          "/src/js/core/main.js"
@@ -50,6 +51,7 @@
       "alarms",
       "notifications",
       "tabs",
+      "contextMenus",
       "http://*/",
       "https://*/"
    ]
