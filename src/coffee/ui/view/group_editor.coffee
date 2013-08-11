@@ -97,7 +97,10 @@ class GroupEditor extends Backbone.View
                   $( form ).fadeIn 200, ( ) =>
 
                      if success
-                        @_addBroadcastingInfo result, true
+                        if @_target.has result.getApiName( ), result.getId( )
+                           ui.view.ModalDialog.show i18n( "broadcasting_existed" ), ui.view.ModalDialog.MODE_OK
+                        else
+                           @_addBroadcastingInfo result, true
                      else
                         ui.view.ModalDialog.show result, ui.view.ModalDialog.MODE_OK
 

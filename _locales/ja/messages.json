@@ -112,6 +112,10 @@
       "message": "グループの削除に失敗しました"
    },
 
+   "broadcasting_existed": {
+      "message": "その配信情報は既に追加済みです"
+   },
+
    "live_now": {
       "message": "$name$がライブ中です!",
       "placeholders": {
