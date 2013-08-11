@@ -44,9 +44,6 @@ class Updater
       chrome.alarms.create "updater",
          periodInMinutes   : CHECK_INTERVAL / ( 60 * 1000 )
 
-      chrome.alarms.create "test", periodInMinutes: 1
-      chrome.alarms.onAlarm.addListener ( alm ) -> console.log "1 minutes" if alm.name is "test"
-
       # グループが変更された際に更新ステータスを初期化する
       chrome.runtime.onMessage.addListener ( msg, sender ) ->
          if sender.id is chrome.runtime.id and  msg.type & core.IsChangedMessage
@@ -59,7 +56,6 @@ class Updater
    @exec: ( ) ->
       now = +new Date
       api_class_name = null
-      console.log "update: " + ( new Date )
 
       # アップデートが必要な配信情報のみを処理
       for b in Updater._getUpdateNeeded now
@@ -70,22 +66,24 @@ class Updater
          if core.Util.toCamelCase( b.apiName ) isnt api_class_name
             core.api[ "#{api_class_name}Api" ].endUpdate now if api_class_name?
             core.api[ "#{api_class_name = core.Util.toCamelCase b.apiName}Api" ].standbyUpdate now
-            console.log "standby: #{api_class_name}Api"
 
          b = core.Storage.getBroadcastingInfo b.apiName, b.id
          core.api[ "#{api_class_name}Api" ].update now, b.getId( )
-         console.log "updater request: #{b.getId()}"
 
       # 最後に終了メソッドを呼び出しておく
       core.api[ "#{api_class_name}Api" ].endUpdate now if api_class_name?
 
    # ある配信情報の更新が完了した際に呼び出す
    @updated: ( apiName, id, broadcasting ) ->
+      # exec呼び出し時に配信情報が残っていても、アップデート完了時にはグループの編集等で配信情報が消えている可能性があるため
+      # 再度ここで存在しているかどうを確認しておく
+      return unless ( _status[ apiName ]? and _status[ apiName ][ id ]? )
+
       _status[ apiName ][ id ].lastUpdated   = +new Date
       _status[ apiName ][ id ].updating      = false
       _updated.push broadcasting if broadcasting? # 更新された配信情報をバッファリングする
 
-   # バッファリングされた配信情報を取り出す
+   # 更新された配信情報を取り出す
    @fetchUpdated: ( ) ->
       updated = _updated
       _updated = [ ]
