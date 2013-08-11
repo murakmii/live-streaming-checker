@@ -281,6 +281,10 @@
       "message": "グループがライブ中になった時にデスクトップに通知する"
    },
 
+   "option_enable_menu": {
+      "message": "視聴中のページをグループに追加できるよう、メニューに項目を追加する"
+   },
+
    "option_help_first_launch_description": {
       "message": "Live Streaming Checkerでは複数の配信を1つの\"グループ\"としてまとめ、グループ内のいずれかの配信がライブ中になった際にそれを通知します。<br />起動時は何もグループが追加されていないため、右上の\"追加\"ボタンからグループを追加しましょう。<br /><img src=\"/image/option/ja/first_launch.png\" />"
    },
