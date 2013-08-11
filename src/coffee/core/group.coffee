@@ -26,6 +26,9 @@ class Group
 
    getName: ( ) -> @_name
    setName: ( @_name ) ->
+      unless @_name? then @_name = ""
+
+   emptyName: ( ) -> @_name.length is 0
 
    getBehavior: ( ) -> @_behavior
    setBehavior: ( @_behavior ) ->
@@ -43,7 +46,7 @@ class Group
       if @has api_name, id
          throw new Error "[Group::append] same BroadcastingInfo already exists"
 
-      @_broadcastings.push apiName: api_name, id: id 
+      @_broadcastings.push apiName: api_name, id: id
       if ( configured = not @_thumb? and broadcastingInfo.hasImageUrl( ) )
          @_thumb = apiName: api_name, id: id
 
@@ -63,7 +66,7 @@ class Group
 
    eachBroadcastingInfo: ( fn ) ->
       for b in @_broadcastings
-         fn( b.apiName, b.id, ( b.apiName is @_thumb.apiName and b.id is @_thumb.id ) )
+         fn( b.apiName, b.id, ( @configuredThumbnail( ) and b.apiName is @_thumb.apiName and b.id is @_thumb.id ) )
 
    configuredThumbnail: ( ) -> @_thumb?
 
@@ -87,7 +90,7 @@ class Group
    clone: ( ) -> Group.fromObject @toObject( )
 
    toObject: ( ) ->
-      group = 
+      group =
          i : @_id
          n : @_name
          bs: [ ]
