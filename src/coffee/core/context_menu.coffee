@@ -63,11 +63,14 @@ chrome.contextMenus.onClicked.addListener ( data ) ->
       core.api[ "#{api_name}Api" ].search id, ( success, result ) ->
          if success
             group = if data.menuItemId is CREATE_MENU_ID then new core.Group else core.Storage.getGroup data.menuItemId
-            ContextMenu._addToGroup result, group, ( success ) ->
-               if success
-                  core.Notifier.notifySimple i18n( "menu_saved_group" ), i18n( "menu_saved_group_message", [ group.getName( ) ] )
-               else
-                  core.Notifier.notifySimple i18n( "sorry" ), i18n( "menu_failed_save_group" )
+            if group.has result.getApiName( ), result.getId( )
+               core.Notifier.notifySimple i18n( "sorry" ), i18n( "broadcasting_existed" )
+            else
+               ContextMenu._addToGroup result, group, ( success ) ->
+                  if success
+                     core.Notifier.notifySimple i18n( "menu_saved_group" ), i18n( "menu_saved_group_message", [ group.getName( ) ] )
+                  else
+                     core.Notifier.notifySimple i18n( "sorry" ), i18n( "menu_failed_save_group" )
          else
             core.Notifier.notifySimple i18n( "sorry" ), result
 
