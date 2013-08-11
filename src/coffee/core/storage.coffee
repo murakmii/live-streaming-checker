@@ -4,8 +4,10 @@ _broadcasting = { }
 _group = { }
 
 # 拡張のデフォルトの設定
-_config =
-   do_notify: true
+_config = { }
+_defaultConfig =
+   do_notify   : true
+   enable_menu : true
 
 class Storage
 
@@ -56,7 +58,7 @@ class Storage
             ver      = chrome.runtime.getManifest( ).version
             if read.version?
                if read.version isnt ver
-                  written.version = ver         
+                  written.version = ver
             else
                # バージョンが存在しない場合は過去のデータ引き継ぎを行う
                written = Storage.migrateFromLocalStorage( )
@@ -72,7 +74,11 @@ class Storage
                         fn( false )
                      else
                         # 拡張の設定を読み込む
-                        _config = read.config if read.config?
+                        if read.config?
+                           for k, v of _defaultConfig
+                              _config[ k ] = if read.config[ k ]? then read.config[ k ] else v
+                        else
+                           _config = _defaultConfig
 
                         # グループと配信状況を読み込む
                         for k, v of read when k.match /[gb]_.+/
@@ -124,6 +130,12 @@ class Storage
 
       return count
 
+   # グループの数をカウント
+   @countGroup: ( ) ->
+      count = 0
+      for gid, group of _group then count++
+      return count
+
    # グループ情報を保存する
    @saveGroup: ( group, broadcastings, fn ) ->
 
@@ -137,15 +149,16 @@ class Storage
             fn( false )
          else
             # 内部データを更新
+            updated = _group[ group.getId( ) ]?
             _group[ group.getId( ) ] = group.clone( )
             for b in broadcastings
                _broadcasting[ b.getApiName( ) ] = { } unless _broadcasting[ b.getApiName( ) ]?
                _broadcasting[ b.getApiName( ) ][ b.getId( ) ] = b.clone( )
    
             # グループが更新された場合、不要な配信情報が発生する可能性があるので削除を実行する
-            @_removeDisused ( ) -> 
-               chrome.runtime.sendMessage type: core.SavedMessage, option: group.clone( )
-               fn( true ) 
+            @_removeDisused ( ) ->
+               chrome.runtime.sendMessage type: core.SavedMessage, groupId: group.getId( ), updated: updated
+               fn( true )
 
    # グループを削除する
    @removeGroup: ( groupId, fn ) ->
@@ -157,8 +170,8 @@ class Storage
             backup = _group[ groupId ].clone( )
             delete _group[ groupId ]
 
-            @_removeDisused ( ) -> 
-               chrome.runtime.sendMessage type: core.RemovedMessage, option: backup
+            @_removeDisused ( ) ->
+               chrome.runtime.sendMessage type: core.RemovedMessage, groupId: groupId
                fn( true )
 
    # グループがライブかどうかを、グループIDをプロパティ名としたオブジェクトとして返す
