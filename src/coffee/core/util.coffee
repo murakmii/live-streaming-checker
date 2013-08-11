@@ -17,10 +17,10 @@ class Util
 
       xhr.send null
 
-   # ハイフン区切りの文字列をキャメルケースへ変換
+   # アンダースコア区切りの文字列をキャメルケースへ変換
    @toCamelCase: ( str ) ->
       cc = ""
-      for w in str.split "-"
+      for w in str.split /[\-_]/
          if w.length > 0
             cc += w.charAt( 0 ).toUpperCase( ) + w.substr 1
       return cc
