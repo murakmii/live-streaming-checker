@@ -58,7 +58,6 @@ chrome.contextMenus.onClicked.addListener ( data ) ->
          break
 
    if id?
-      console.log "OK: #{id}"
       # IDが含まれていた場合は配信情報について詳しい情報を取得
       core.api[ "#{api_name}Api" ].search id, ( success, result ) ->
          if success
