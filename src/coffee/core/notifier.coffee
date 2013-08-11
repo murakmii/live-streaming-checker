@@ -2,6 +2,9 @@
 
 i18n = chrome.i18n.getMessage
 
+SIMPLE_NOTIFICATION_ID  = "simple_notify"
+NOTIFY_DEFAULT_ICON     = "/image/notify.png"
+
 # 表示中の通知を管理
 _shown = { }
 
@@ -35,7 +38,7 @@ class Notifier
          bi       = core.Storage.getBroadcastingInfo thumb.apiName, thumb.id
          icon_url = bi.getImageUrl( ) if bi.hasImageUrl( )
 
-      return if icon_url? then icon_url else "/image/notify.png"
+      return if icon_url? then icon_url else NOTIFY_DEFAULT_ICON
 
    # ライブ中のグループを通知する際のメッセージを作成する
    @_createMessage: ( groups ) ->
@@ -111,5 +114,21 @@ class Notifier
          chrome.browserAction.setBadgeText text: "#{count}"
       else
          chrome.browserAction.setBadgeText text: ""
+
+   @notifySimple: ( title, message ) ->
+      os_name = core.Util.getOSName( )
+      if os_name is "cros" or os_name is "win"
+         chrome.notifications.create SIMPLE_NOTIFICATION_ID,
+            type     : "basic"
+            title    : title
+            iconUrl  : NOTIFY_DEFAULT_ICON
+            message  : message
+         , ( ) ->
+      else
+         webkitNotifications.createNotification(
+            NOTIFY_DEFAULT_ICON,
+            title,
+            message
+         ).show( )
 
 @core.Notifier = Notifier
