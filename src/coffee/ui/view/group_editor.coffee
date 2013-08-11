@@ -8,7 +8,7 @@ class GroupEditor extends Backbone.View
 
    el    : "#group"
    events:
-      "click #group-footer button:last-child": "_onClickedSave" 
+      "click #group-footer button:last-child": "_onClickedSave"
 
       "click #group-header button"              : "_onClickedCancel"
       "click #group-footer button:first-child"  : "_onClickedCancel"
@@ -90,9 +90,8 @@ class GroupEditor extends Backbone.View
             api = core.Util.toCamelCase document.main_config_footer.api.value
             core.api[ "#{api}Api" ].search document.main_config_footer.id.value, ( success, result ) =>
 
-               if success
-                  document.main_config_footer.id.value = ""
-                  $( document.main_config_footer.id ).trigger "blur"
+               $( document.main_config_footer.id ).trigger "blur"
+               document.main_config_footer.id.value = "" if success
 
                $( loading ).fadeOut 200, ( ) =>
                   $( form ).fadeIn 200, ( ) =>
@@ -105,7 +104,7 @@ class GroupEditor extends Backbone.View
    # 動作の設定が切り替えられた際のイベント
    _onChangedLinkConfig: ( e ) ->
       if e.target.checked
-         document.link_config.url.removeAttribute "disabled" 
+         document.link_config.url.removeAttribute "disabled"
       else
          document.link_config.url.setAttribute "disabled", "disabled"
 
@@ -131,7 +130,7 @@ class GroupEditor extends Backbone.View
          for i in @_items
             if ( found = ( bi = i.getBroadcastingInfo( ) ).hasImageUrl( ) )
                i.iconClickable false
-               @_target.setThumbnail bi.getApiName( ), bi.getId( ) 
+               @_target.setThumbnail bi.getApiName( ), bi.getId( )
                @_showIcon bi.getImageUrl( )
                break
 
@@ -143,7 +142,7 @@ class GroupEditor extends Backbone.View
 
    # 配信情報のビューのアイコンがクリックされた際のイベント
    _onClickedItemIcon: ( item ) ->
-      i.iconClickable true for i in @_items 
+      i.iconClickable true for i in @_items
       item.iconClickable false
 
       bi = item.getBroadcastingInfo( )
