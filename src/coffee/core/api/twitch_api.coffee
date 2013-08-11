@@ -20,6 +20,14 @@ class TwitchApi extends core.api.Api
 
       return bi
 
+   @getStreamingPagePattern: ( ) -> [ "http://www.twitch.tv/*" ]
+
+   @extractIdFromUrl: ( url ) ->
+      if ( matched = url.match /^http:\/\/www\.twitch\.tv\/([\w\-\.~%!$&'\(\)\*\+,;=]+)$/ )
+         return matched[ 1 ]
+      else
+         return null
+
    @search: ( id, fn ) ->
       core.Util.getRequest "https://api.twitch.tv/kraken/channels/#{id}", ( success, xhr ) ->
          if success

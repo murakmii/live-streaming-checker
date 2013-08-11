@@ -35,6 +35,14 @@ class TwitcastingApi extends core.api.Api
       core.Util.getRequest "http://api.twitcasting.tv/api/livestatus?type=json&user=#{id}", ( success, xhr ) ->
          fn( success and JSON.parse( xhr.responseText ).islive ) if fn?
 
+   @getStreamingPagePattern: ( ) -> [ "http://twitcasting.tv/*" ]
+
+   @extractIdFromUrl: ( url ) ->
+      if ( matched = url.match /^http:\/\/twitcasting\.tv\/([\w\-\.~%!$&'\(\)\*\+,;=]+)$/ )
+         return matched[ 1 ]
+      else
+         return null
+
    @search: ( id, fn ) ->
       if not core.Util.isSegment id
          fn( false, i18n "ustream_not_found" )

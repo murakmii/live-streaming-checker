@@ -21,7 +21,15 @@ class JustinApi extends core.api.Api
          bi.setImageUrl channelObject.image_url_small
 
       return bi
+
+   @getStreamingPagePattern: ( ) -> [ "http://*.justin.tv/*" ]
    
+   @extractIdFromUrl: ( url ) ->
+      if ( matched = url.match /^http:\/\/.+\.justin\.tv\/([\w\-\.~%!$&'\(\)\*\+,;=]+)$/ )
+         return matched[ 1 ]
+      else
+         return null
+
    @search: ( id, fn ) ->
       if id.match /[\.\/\?#]/ then fn( false, i18n "justin_invalid_char" )
 
@@ -70,7 +78,7 @@ class JustinApi extends core.api.Api
                chobj = { }
                for stream in json
                   info = JustinApi._channelObjectToObject( stream.channel ).setLive true
-                  chobj[ bi.getId( ) ] = info
+                  chobj[ info.getId( ) ] = info
 
                for id in ids
                   if chobj[ id ]?

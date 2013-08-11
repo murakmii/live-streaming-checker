@@ -16,6 +16,14 @@ class StickamApi extends core.api.Api
 
       return bi
 
+   @getStreamingPagePattern: ( ) -> [ "http://www.stickam.jp/profile/*" ]
+
+   @extractIdFromUrl: ( url ) ->
+      if ( matched = url.match /^http:\/\/www\.stickam\.jp\/profile\/([\w\-\.~%!$&'\(\)\*\+,;=]+)$/ )
+         return matched[ 1 ]
+      else
+         return null
+
    @search: ( id, fn ) ->
       if not core.Util.isSegment id
          fn( false, i18n "ustream_not_found" )

@@ -2,6 +2,12 @@
 
 class Api
 
+   @getStreamingPagePattern: ( ) ->
+      throw new Error "Api::getStreamingPagePattern hasn't implemented"
+
+   @extractIdFromUrl: ( ) ->
+      throw new Error "Api::extractIdFromUrl hasn't implemented"
+
    @search: ( id, fn ) ->
       throw new Error "Api::search hasn't implemented"
 

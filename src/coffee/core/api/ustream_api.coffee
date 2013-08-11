@@ -35,6 +35,14 @@ class UstreamApi extends core.api.Api
             else
                core.Updater.updated API_NAME, id, core.Storage.getBroadcastingInfo( API_NAME, id ).setLive( false )
 
+   @getStreamingPagePattern: ( ) -> [ "http://www.ustream.tv/channel/*" ]
+
+   @extractIdFromUrl: ( url ) ->
+      if ( matched = url.match /^http:\/\/www\.ustream\.tv\/channel\/([\w\-\.~%!$&'\(\)\*\+,;=]+)$/ )
+         return matched[ 1 ]
+      else
+         return null
+
    @search: ( id, fn ) ->
       id = id.split( ";" )[ 0 ] # セミコロンは実質使用不可とする
       core.Util.getRequest "http://api.ustream.tv/json/channel/#{id}/getInfo", ( success, xhr ) ->
