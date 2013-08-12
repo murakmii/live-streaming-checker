@@ -90,8 +90,8 @@ class GroupEditor extends Backbone.View
             api = core.Util.toCamelCase document.main_config_footer.api.value
             core.api[ "#{api}Api" ].search document.main_config_footer.id.value, ( success, result ) =>
 
-               $( document.main_config_footer.id ).trigger "blur"
                document.main_config_footer.id.value = "" if success
+               $( document.main_config_footer.id ).trigger "blur"
 
                $( loading ).fadeOut 200, ( ) =>
                   $( form ).fadeIn 200, ( ) =>
