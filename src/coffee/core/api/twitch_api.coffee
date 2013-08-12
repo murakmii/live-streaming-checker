@@ -52,16 +52,17 @@ class TwitchApi extends core.api.Api
 
    @update: ( timestamp, id ) ->
       core.Util.getRequest "https://api.twitch.tv/kraken/streams/#{id}", ( success, xhr ) ->
-         if success
-            json = JSON.parse xhr.responseText
-            if json.error
-               core.Updater.updated API_NAME, id, core.Storage.getBroadcastingInfo( API_NAME, id ).setLive( false )
-            else
-               if json.stream?
-                  core.Updater.updated API_NAME, id, TwitchApi._resultToObject( json.stream.channel ).setLive( true )
-               else
+         if core.Storage.existsBroadcastingInfo API_NAME, id
+            if success
+               json = JSON.parse xhr.responseText
+               if json.error
                   core.Updater.updated API_NAME, id, core.Storage.getBroadcastingInfo( API_NAME, id ).setLive( false )
-         else
-            core.Updater.updated API_NAME, id, core.Storage.getBroadcastingInfo( API_NAME, id ).setLive( false )
+               else
+                  if json.stream?
+                     core.Updater.updated API_NAME, id, TwitchApi._resultToObject( json.stream.channel ).setLive( true )
+                  else
+                     core.Updater.updated API_NAME, id, core.Storage.getBroadcastingInfo( API_NAME, id ).setLive( false )
+            else
+               core.Updater.updated API_NAME, id, core.Storage.getBroadcastingInfo( API_NAME, id ).setLive( false )
 
 @core.api.TwitchApi = TwitchApi

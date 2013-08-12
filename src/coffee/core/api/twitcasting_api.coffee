@@ -74,12 +74,14 @@ class TwitcastingApi extends core.api.Api
          if ( wait_time = TwitcastingApi._getWaitTime now ) is 0
             # 待つ必要がない場合は即座にリクエストを実行
             TwitcastingApi._request now, id, ( live ) ->
-               core.Updater.updated API_NAME, id, core.Storage.getBroadcastingInfo( API_NAME, id ).setLive( live )
+               if ( info = core.Storage.getBroadcastingInfo API_NAME, id )?
+                  core.Updater.updated API_NAME, id, info.setLive( live )
          else
             # 待ち時間が発生する場合はタイマを仕込んでリクエスト
             _waitTimer = setTimeout ( ) ->
                TwitcastingApi._request now, id, ( live ) ->
-                  core.Updater.updated API_NAME, id, core.Storage.getBroadcastingInfo( API_NAME, id ).setLive( live )
+                  if ( info = core.Storage.getBroadcastingInfo API_NAME, id )?
+                     core.Updater.updated API_NAME, id, info.setLive( live )
 
                   clearTimeout _waitTimer
                   _waitTimer = null

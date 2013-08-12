@@ -71,26 +71,22 @@ class JustinApi extends core.api.Api
          _requestId = [ ]
 
          core.Util.getRequest "http://api.justin.tv/api/stream/list.json?channel=#{ids.join ','}", ( success, xhr ) ->
-            if success
-               json = JSON.parse xhr.responseText
+            if core.Storage.existsBroadcastingInfo API_NAME, id
+               if success
+                  json = JSON.parse xhr.responseText
 
-               # レスポンスが得られた配信情報についてIDをキーにしてオブジェクトにしておく
-               chobj = { }
-               for stream in json
-                  info = JustinApi._channelObjectToObject( stream.channel ).setLive true
-                  chobj[ info.getId( ) ] = info
+                  # レスポンスが得られた配信情報についてIDをキーにしてオブジェクトにしておく
+                  chobj = { }
+                  for stream in json
+                     info = JustinApi._channelObjectToObject( stream.channel ).setLive true
+                     chobj[ info.getId( ) ] = info
 
-               for id in ids
-                  if chobj[ id ]?
-                     # レスポンスが得られたIDについて、配信情報を更新しライブ中とする
-                     core.Updater.updated API_NAME, id, chobj[ id ]
-                  else
-                     # レスポンスが得られなかったIDはオフラインなので既に保持しているチャンネル情報を取得しライブ中フラグを折る
+                  for id in ids
+                     core.Updater.updated API_NAME, id, if chobj[ id ]? then chobj[ id ] else core.Storage.getBroadcastingInfo( API_NAME, id ).setLive( false )
+                     
+               else
+                  for id in ids
                      core.Updater.updated API_NAME, id, core.Storage.getBroadcastingInfo( API_NAME, id ).setLive( false )
-                  
-            else
-               for id in ids
-                  core.Updater.updated API_NAME, id, core.Storage.getBroadcastingInfo( API_NAME, id ).setLive( false )
 
    @endUpdate: ( timestamp ) -> JustinApi.update timestamp, null
 

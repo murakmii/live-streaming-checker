@@ -23,17 +23,18 @@ class UstreamApi extends core.api.Api
       return bi
 
    @_updateEach: ( ids ) ->
-      if ( id = ids.shift( ) )
+      if ( id = ids.shift( ) )?
          core.Util.getRequest "http://api.ustream.tv/json/channel/#{id}/getInfo", ( success, xhr ) ->
-            if success
-               json = JSON.parse xhr.responseText
-               if json.error
-                  core.Updater.updated API_NAME, id, core.Storage.getBroadcastingInfo( API_NAME, id ).setLive( false )
+            if core.Storage.existsBroadcastingInfo API_NAME, id
+               if success
+                  json = JSON.parse xhr.responseText
+                  if json.error
+                     core.Updater.updated API_NAME, id, core.Storage.getBroadcastingInfo( API_NAME, id ).setLive( false )
+                  else
+                     core.Updater.updated API_NAME, id, UstreamApi._resultToObject( json.results )
+                     UstreamApi._updateEach ids
                else
-                  core.Updater.updated API_NAME, id, UstreamApi._resultToObject( json.results )
-                  UstreamApi._updateEach ids
-            else
-               core.Updater.updated API_NAME, id, core.Storage.getBroadcastingInfo( API_NAME, id ).setLive( false )
+                  core.Updater.updated API_NAME, id, core.Storage.getBroadcastingInfo( API_NAME, id ).setLive( false )
 
    @getStreamingPagePattern: ( ) -> [ "http://www.ustream.tv/channel/*" ]
 
@@ -65,23 +66,24 @@ class UstreamApi extends core.api.Api
          _requestId = [ ]
 
          core.Util.getRequest "http://api.ustream.tv/json/channel/#{ids.join ";"}/getInfo", ( success, xhr ) ->
-            if success
-               json = JSON.parse xhr.responseText
-               if json.error
-                  if ids.length > 1
-                     UstreamApi._updateEach ids
+            if core.Storage.existsBroadcastingInfo API_NAME, id
+               if success
+                  json = JSON.parse xhr.responseText
+                  if json.error
+                     if ids.length > 1
+                        UstreamApi._updateEach ids
+                     else
+                        core.Updater.updated API_NAME, ids[ 0 ], core.Storage.getBroadcastingInfo( API_NAME, ids[ 0 ] ).setLive( false )
                   else
-                     core.Updater.updated API_NAME, ids[ 0 ], core.Storage.getBroadcastingInfo( API_NAME, ids[ 0 ] ).setLive( false )
+                     if ids.length > 1
+                        for e in json.results
+                           obj = UstreamApi._resultToObject e.result
+                           core.Updater.updated API_NAME, obj.getId( ), obj
+                     else
+                        core.Updater.updated API_NAME, ids[ 0 ], UstreamApi._resultToObject( json.results )
                else
-                  if ids.length > 1
-                     for e in json.results
-                        obj = UstreamApi._resultToObject e.result
-                        core.Updater.updated API_NAME, obj.getId( ), obj
-                  else
-                     core.Updater.updated API_NAME, ids[ 0 ], UstreamApi._resultToObject( json.results )
-            else
-               for id in ids
-                  core.Updater.updated API_NAME, id, core.Storage.getBroadcastingInfo( API_NAME, id ).setLive( false )
+                  for id in ids
+                     core.Updater.updated API_NAME, id, core.Storage.getBroadcastingInfo( API_NAME, id ).setLive( false )
       
    @endUpdate: ( timestamp ) -> UstreamApi.update timestamp, null
 

@@ -43,6 +43,7 @@ class StickamApi extends core.api.Api
          if success
             core.Updater.updated API_NAME, id, result
          else
-            core.Updater.updated API_NAME, id, core.Storage.getBroadcastingInfo( API_NAME, id ).setLive( false )
+            if ( info = core.Storage.getBroadcastingInfo API_NAME, id )?
+               core.Updater.updated API_NAME, id, info.setLive( false )
 
 @core.api.StickamApi = StickamApi

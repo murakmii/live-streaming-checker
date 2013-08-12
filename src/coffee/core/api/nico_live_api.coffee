@@ -10,17 +10,17 @@ _lastTime   = 0
 _interval   = 0
 
 setInterval ( ) ->
-   if ( ( +new Date ) - _lastTime ) > _interval and not _requesting and ( id = _reqQueue )?
+   if ( ( +new Date ) - _lastTime ) > _interval and not _requesting and ( id = _reqQueue.shift( ) )?
       _requesting = true
       core.Util.getRequest "http://com.nicovideo.jp/community/co#{id}", ( success, xhr ) ->
 
          if success
             info = NicoLiveApi._pageToObject xhr.responseText
             info.setId( id ).setUrl "http://com.nicovideo.jp/community/co#{id}"
-         else
-            info = core.Storage.getBroadcastingInfo( API_NAME, id ).setLive false
+         else if ( info = core.Storage.getBroadcastingInfo API_NAME, id )?
+            info.setLive false
 
-         core.Updater.updated API_NAME, id, info
+         core.Updater.updated API_NAME, id, info if info?
 
          _requesting = false
          _lastTime   = +new Date
