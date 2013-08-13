@@ -1,0 +1,395 @@
+{
+   "language": {
+      "message": "en"
+   },
+
+   "description": {
+      "message": "checker for USTREAM and etc."
+   },
+
+   "loading_text": {
+      "message": "loading..."
+   },
+
+   "error_text": {
+      "message": "Data loading failed.<br />Please reload this extension for recovery."
+   },
+
+   "reload": {
+      "message": ""
+   },
+
+   "group_live_status": {
+      "message": "$count$ Broadcastings is live",
+      "placeholders": {
+         "count": {
+            "content": "$1"
+         }
+      }
+   },
+
+   "modal_dialog_button_yes": {
+      "message": "Yes"
+   },
+
+   "modal_dialog_button_no": {
+      "message": "No"
+   },
+
+   "modal_dialog_button_ok": {
+      "message": "OK"
+   },
+
+   "jump": {
+      "message": "Let's view"
+   },
+
+   "group_offline_status": {
+      "message": "Offline"
+   },
+
+   "remove": {
+      "message": "Remove"
+   },
+
+   "confirm": {
+      "message": "Remove really?"
+   },
+
+   "header_button": {
+      "message": "Add"
+   },
+
+   "create_group": {
+      "message": "Create new group"
+   },
+
+   "edit_group": {
+      "message": "Edit group"
+   },
+
+   "group_name": {
+      "message": "Group Name"
+   },
+
+   "group_icon": {
+      "message": "Click to set group icon"
+   },
+
+   "search": {
+      "message": "Search"
+   },
+
+   "main_tab": {
+      "message": "Basic"
+   },
+
+   "link_tab": {
+      "message": "Link"
+   },
+
+   "link_config": {
+      "message": "If you want to watch broadcasting at optional page, a link to the page will be displayed with a group if you have configured the URL."
+   },
+
+   "link_config_label": {
+      "message": "Config optional page url."
+   },
+
+   "cancel": {
+      "message": "Cancel"
+   },
+
+   "save": {
+      "message": "Save"
+   },
+
+   "change": {
+      "message": "Change"
+   },
+
+   "edit": {
+      "message": "Edit"
+   },
+
+   "network_error": {
+      "message": "Network error was occurred."
+   },
+
+   "save_error": {
+      "message": "Saving group was failed."
+   },
+
+   "remove_error": {
+      "message": "Removing group was failed."
+   },
+
+   "broadcasting_existed": {
+      "message": "This broadcasting has been already added."
+   },
+
+   "live_now": {
+      "message": "$name$ is live!",
+      "placeholders": {
+         "name": {
+            "content": "$1"
+         }
+      }
+   },
+
+   "other_live_groups": {
+      "message": "and other $count$ groups has started",
+      "placeholders": {
+         "count": {
+            "content": "$1"
+         }
+      } 
+   },
+
+   "live_in": {
+      "message": "Live on $count$ services",
+      "placeholders": {
+         "count": {
+            "content": "$1"
+         }
+      } 
+   },
+
+   "view_on_optional": {
+      "message": "watch on optional page"
+   },
+
+   "view_on_service": {
+      "message": "watch $name$ on $api$",
+      "placeholders": {
+         "api": {
+            "content": "$1"
+         },
+         "name": {
+            "content": "$2"
+         }
+      }
+   },
+
+   "ustream": {
+      "message": "USTREAM"
+   },
+
+   "ustream_search_box": {
+      "message": "Channel Name"
+   },
+
+   "ustream_not_found": {
+      "message": "Broadcasting wasn't found"
+   },
+
+   "ustream_search_error": {
+      "message": "An Error occurred during get broadcasting data"
+   },
+
+   "justin": {
+      "message": "Justin"
+   },
+
+   "justin_search_box": {
+      "message": "Channel Name"
+   },
+
+   "justin_invalid_char": {
+      "message": "Can't use \".\", \"/\", \"?\", \"#\""
+   },
+
+   "twitch": {
+      "message": "Twitch"
+   },
+
+   "twitch_search_box": {
+      "message": "Channel Name"
+   },
+
+   "twitch_not_avaiable": {
+      "message": "This channel is unavaiable on twtich"
+   },
+
+   "nico_live": {
+      "message": "Nico Live"
+   },
+
+   "nico_live_search_box": {
+      "message": "Community Number"
+   },
+
+   "stickam": {
+      "message": "Stickam"
+   },
+
+   "stickam_search_box": {
+      "message": "User Name"
+   },
+
+   "twitcasting": {
+      "message": "Twitcasting"
+   },
+
+   "twitcasting_search_box": {
+      "message": "User Name"
+   },
+
+   "menu_top": {
+      "message": "Add broadcasting to group"
+   },
+
+   "menu_create_group": {
+      "message": "Create as new group"
+   },
+
+   "menu_add_group": {
+      "message": "Add to \"$name$\"",
+      "placeholders": {
+         "name": {
+            "content": "$1"
+         }
+      }
+   },
+
+   "sorry": {
+      "message": "Sorry!"
+   },
+
+   "menu_saved_group": {
+      "message": "Saving group was succeeded"
+   },
+
+   "menu_saved_group_message": {
+      "message": "Saved as \"$name$\"",
+      "placeholders": {
+         "name": {
+            "content": "$1"
+         }
+      }
+   },
+
+   "menu_failed_save_group": {
+      "message": "Saving group was failed. please retry creating group"
+   },
+
+   "option_basic": {
+      "message": "Basic"
+   },
+
+   "option_help": {
+      "message": "Help"
+   },
+
+   "option_help_first_launch": {
+      "message": "First launch"
+   },
+
+   "option_about": {
+      "message": "About this extension"
+   },
+
+   "option_do_notify": {
+      "message": "enable desktop notification."
+   },
+
+   "option_enable_menu": {
+      "message": "enable context menu for watching page add to group"
+   },
+
+   "option_help_first_launch_description": {
+      "message": "Live Streaming Checker hold any broadcastings as group and if broadcasting any one in group became live, do notify to desktop.<br />When this extension was launched at first, this extension has no group. let's click \"Add\" button to add group.<br /><img src=\"/image/option/en/first_launch.png\" />"
+   },
+
+   "option_help_create_group": {
+      "message": "Create group"
+   },
+
+   "option_help_add_from_ustream": {
+      "message": "Case: add broadcasting on USTREAM"
+   },
+
+   "option_help_add_from_ustream_description": {
+      "message": "if you add broadcasting on USTREAM, please search with channel name that is displayed in location bar on USTREAM watching page.<br /><img src=\"/image/option/en/id_for_ustream.png\" />"
+   },
+
+   "option_help_add_from_justin": {
+      "message": "Case: add broadcasting on Justin"
+   },
+
+   "option_help_add_from_justin_description": {
+      "message": "if you add broadcasting on Justin, please search with channel name that is displayed in location bar on Justin watching page.<br /><img src=\"/image/option/en/id_for_justin.png\" />"
+   },
+
+   "option_help_add_from_twitch": {
+      "message": "Case: add broadcasting on Twitch"
+   },
+
+   "option_help_add_from_twitch_description": {
+      "message": "if you add broadcasting on Twitch, please search with channel name that is displayed in location bar on Twitch watching page.<br /><img src=\"/image/option/en/id_for_twitch.png\" />"
+   },
+
+   "option_help_add_from_nico": {
+      "message": "Case: add broadcasting on Nico Live"
+   },
+
+   "option_help_add_from_nico_description": {
+      "message": "if you add broadcasting on Nico Live, please search with Community Number that is displayed in location bar on community page.<br /><img src=\"/image/option/en/id_for_nico.png\" />"
+   },
+
+   "option_help_add_from_stickam": {
+      "message": "Case: add broadcasting on Stickam"
+   },
+
+   "option_help_add_from_stickam_description": {
+      "message": "if you add broadcasting on Stickam, please search with user name that is displayed in location bar on profile page.<br /><img src=\"/image/option/en/id_for_stickam.png\" />"
+   },
+
+   "option_help_add_from_twitcasting": {
+      "message": "Case: add broadcasting on Twitcasting"
+   },
+
+   "option_help_add_from_twitcasting_description": {
+      "message": "if you add broadcasting on Twitcasting, please search with user name that is displayed in location bar on Twitcasting watching page.<br /><img src=\"/image/option/en/id_for_twitcasting.png\" />"
+   },
+
+   "option_help_create_group_description" :{
+      "message": "Let's create group in page that was opened by \"Add\" button.<br />\"Group Name\" is required for group. You can add broadcasting more than 1 to group.<br />if broadcasting that was added in group became live, this extension do notify that to desktop.<br />You can do searching and adding broadcasting from search form.<br /><img src=\"/image/option/en/broadcasting_form.png\" />"
+   },
+
+   "option_help_icon": {
+      "message": "Set group icon"
+   },
+
+   "option_help_icon_description": {
+      "message": "You can set icon for group.<br />if group has single broadcasting, set automatically that broadcasting's icon<br />if group has any broadcastings, you can change group icon by clicking other broadcasting's icon<br /><img src=\"/image/option/en/icon_setting.png\" />"
+   },
+
+   "option_help_link": {
+      "message": "Link config"
+   },
+
+   "option_help_link_description": {
+      "message": "If you want to jump optional page easily when group became to live, you can configure optional page url in \"Link\" config tab.<br />If this config was configured, you can jump easily from link in group list.<br /><img src=\"/image/option/en/link_setting.png\" /><img src=\"/image/option/en/link_setting_result.png\" />"
+   },
+
+   "option_context_menu": {
+      "message": "Edit group from menu"
+   },
+
+   "option_context_menu_description": {
+      "message": "You can add broadcasting to group in menu on watching page.<br />Click \"Add broadcasting to group\" to add broadcasting as new group or select group to add broadcasting as existing group's in menu.<br /><img src=\"/image/option/en/context_menu.png\" />"
+   },
+
+   "option_about_description": {
+      "message": "This extension was created by <a href=\"https://twitter.com/bonon0\" target=\"_blank\">@bonon0</a><br />Please send feedback through Twitter or E-Mail(<b>bonono.jp@gmail.com</b>) if you want to do that.<br />This extension's source code is published on <a href=\"https://github.com/bonono/live-streaming-checker\" target=\"_blank\">github</a>"
+   },
+
+   "option_thanks": {
+      "message": "Thanks!"
+   },
+
+   "option_thanks_description": {
+      "message": "This extension is using following libraries and resources.<br />Thanks for your works."
+   }
+}
