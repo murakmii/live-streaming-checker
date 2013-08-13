@@ -31,7 +31,9 @@ class ModalDialog
       _modal    = document.getElementById "modal"
       _text     = _modal.getElementsByTagName( "p" )[ 0 ]
 
-      $( e ).click _onClickedHandler for e in _modal.getElementsByTagName "button"
+      for e in _modal.getElementsByTagName "button"
+         e.innerText = i18n "modal_dialog_button_#{e.dataset.result}"
+         $( e ).click _onClickedHandler
 
    # 内容・表示するボタンとコールバックを設定しダイアログを表示する
    @show: ( content, mode, fn ) ->

@@ -28,6 +28,18 @@
       }
    },
 
+   "modal_dialog_button_yes": {
+      "message": "はい"
+   },
+
+   "modal_dialog_button_no": {
+      "message": "いいえ"
+   },
+
+   "modal_dialog_button_ok": {
+      "message": "OK"
+   },
+
    "jump": {
       "message": "視聴ページへ"
    },
