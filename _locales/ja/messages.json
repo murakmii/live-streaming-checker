@@ -370,7 +370,7 @@
    },
 
    "option_help_link_description": {
-      "message": "グループがライブ中になった際にあるページへ簡単に移動したい場合はグループの\"リンク設定\"タブからリンクの設定を行います。<br />ここで設定をしておくことで、グループの一覧でリンクから簡単に移動できるようになります。<img src=\"/image/option/ja/link_setting.png\" /><img src=\"/image/option/ja/link_setting_result.png\" />"
+      "message": "グループがライブ中になった際にあるページへ簡単に移動したい場合はグループの\"リンク設定\"タブからリンクの設定を行います。<br />ここで設定をしておくことで、グループの一覧でリンクから簡単に移動できるようになります。<br /><img src=\"/image/option/ja/link_setting.png\" /><img src=\"/image/option/ja/link_setting_result.png\" />"
    },
 
    "option_context_menu": {
