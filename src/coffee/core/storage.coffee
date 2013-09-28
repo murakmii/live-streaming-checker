@@ -44,11 +44,94 @@ class Storage
       # 削除に関して、成否を確認しない
       chrome.storage.local.remove keys, fn
 
-   @migrateFromLocalStorage: ( ) -> { }
+   @migrateFromLocalStorage: ( ) ->
+      
+      migrated_data = { }
+
+      # Ustreamのデータを移行
+      ustream = localStorage.getItem "ustream"
+      if ustream?
+         ustream = JSON.parse ustream
+         if ustream.item?
+            for id, data of ustream.item
+               info = new core.BroadcastingInfo
+               info.setId parseInt( id )
+               info.setApiName "ustream"
+               info.setName data.name
+               info.setUrl data.url
+               info.setImageUrl data.img_url
+               migrated_data[ info.getStorageKey( ) ] = info.toObject( )
+
+      # Justinのデータを移行
+      justin = localStorage.getItem "justin"
+      if justin?
+         justin = JSON.parse justin
+         for id, data of justin
+            info = new core.BroadcastingInfo
+            info.setId id
+            info.setApiName "justin"
+            info.setName data.name
+            info.setUrl data.url
+            info.setImageUrl data.img_url
+            migrated_data[ info.getStorageKey( ) ] = info.toObject( )
+
+      # Stickam!のデータを移行
+      stickam = localStorage.getItem "stickam"
+      if stickam?
+         stickam = JSON.parse stickam
+         for id, data of stickam
+            info = new core.BroadcastingInfo
+            info.setId id
+            info.setApiName "stickam"
+            info.setName data.name
+            info.setUrl data.url
+            info.setImageUrl data.img_url
+            migrated_data[ info.getStorageKey( ) ] = info.toObject( )
+
+      # ニコ生のデータを移行
+      nico_live = localStorage.getItem "niconico"
+      if nico_live?
+         nico_live = JSON.parse nico_live
+         for id, data of nico_live
+            info = new core.BroadcastingInfo
+            info.setId parseInt( id )
+            info.setApiName "nico_live"
+            info.setName data.name
+            info.setUrl data.url
+            info.setImageUrl data.img_url
+            migrated_data[ info.getStorageKey( ) ] = info.toObject( )
+
+      # グループのデータを移行
+      groups = localStorage.getItem "group"
+      if groups?
+         groups = JSON.parse groups
+         for id, data of groups
+            group = new core.Group
+            group.setName data.name
+            
+            for stream in data.stream
+               api_name = if stream.ctrl is "niconico" then "nico_live" else stream.ctrl
+               id       = stream.id
+               group.append core.BroadcastingInfo.fromObject( migrated_data[ "b_#{api_name}_#{id}" ] )
+            
+            group.resetTumbnail( )
+            if data.img_provider?
+               thumb = data.img_provider
+               group.setThumbnail ( if thumb.ctrl is "niconico" then "nico_live" else thumb.ctrl ), thumb.id
+
+            if data.behavior?
+               if data.behavior.type is 0
+                  group.setBehavior core.Group.Behavior.List
+               else
+                  group.setBehavior core.Group.Behavior.Optional
+                  group.setOptionalLink data.behavior.param
+
+            migrated_data[ group.getStorageKey( ) ] = group.toObject( )
+
+      return migrated_data
 
    # ストレージを初期化
    @init: ( fn ) ->
-
       # バージョンの確認
       chrome.storage.local.get "version", ( read ) ->
          if chrome.runtime.lastError?
@@ -81,7 +164,7 @@ class Storage
                            _config = _defaultConfig
 
                         # グループと配信状況を読み込む
-                        for k, v of read when k.match /[gb]_.+/
+                        for k, v of read when k.match /^[gb]_.+/
                            switch k.charAt 0 
                               when "g"
                                  group = core.Group.fromObject v

@@ -70,6 +70,8 @@ class Group
 
    configuredThumbnail: ( ) -> @_thumb?
 
+   resetTumbnail: ( ) -> @_thumb = null
+
    setThumbnail: ( apiName, id ) ->
       unless @has apiName, id
          throw new Error "[Group::setThumbnail] BroadcastingInfo doesn't exists"
