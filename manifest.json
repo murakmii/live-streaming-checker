@@ -9,6 +9,7 @@
    "icons": {
       "16": "/image/icon.png",
       "48": "/image/icon.png"
+      "128": "/image/icon.png"
    },
 
    "browser_action": {
@@ -53,7 +54,9 @@
       "notifications",
       "tabs",
       "contextMenus",
-      "http://*/",
-      "https://*/"
+		"http://api.ustream.tv/*",
+		"http://api.justin.tv/*",
+		"http://com.nicovideo.jp/community/co*",
+		"http://api.stickam.jp/api/user/*"
    ]
 }
