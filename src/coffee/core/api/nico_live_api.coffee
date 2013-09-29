@@ -24,8 +24,8 @@ setInterval ( ) ->
 
          _requesting = false
          _lastTime   = +new Date
-         _interval   = if xhr.status is 503 then 70000 else 3000
-, 3000
+         _interval   = if xhr.status isnt 200 then 70000 else 3000
+, 2900
 
 class NicoLiveApi extends core.api.Api
 

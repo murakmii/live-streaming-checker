@@ -5,18 +5,13 @@ i18n = chrome.i18n.getMessage
 class Observer
 
    @init: ( ) ->
-      # 定期的に更新をチェックするアラームを仕込む
-      chrome.alarms.onAlarm.addListener ( alm ) -> Observer.exec( ) if alm.name is "observer"
-      chrome.alarms.create "observer",
-         periodInMinutes: core.UpdateInterval / ( 60 * 1000 )
-
       # グループの追加・削除が行われた場合にバッジを更新する
       chrome.runtime.onMessage.addListener ( msg, sender ) ->
          if sender.id is chrome.runtime.id and msg.type & core.IsChangedMessage
             core.Notifier.notifyBadge( )
 
-      # 初回実行を5秒後に仕込む
-      setTimeout Observer.exec, 5000
+      # 更新チェックを5秒枚に仕込む
+      setInterval Observer.exec, 5000
 
    @exec: ( ) ->
       
