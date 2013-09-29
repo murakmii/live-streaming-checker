@@ -2,13 +2,13 @@
    "manifest_version": 2,
 
    "name"            : "Live Streaming Checker",
-   "version"         : "1.0.0",
+   "version"         : "0.9.8",
    "default_locale"  : "ja",
    "description"     : "__MSG_description__",
 
    "icons": {
       "16": "/image/icon.png",
-      "48": "/image/icon.png"
+      "48": "/image/icon.png",
       "128": "/image/icon.png"
    },
 
@@ -54,9 +54,7 @@
       "notifications",
       "tabs",
       "contextMenus",
-		"http://api.ustream.tv/*",
-		"http://api.justin.tv/*",
-		"http://com.nicovideo.jp/community/co*",
-		"http://api.stickam.jp/api/user/*"
+		"http://*/*",
+      "https://*/*"
    ]
 }
