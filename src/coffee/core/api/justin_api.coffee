@@ -22,6 +22,9 @@ class JustinApi extends core.api.Api
 
       return bi
 
+   # Justinは廃止
+   @hasDeprecated: ( ) -> true
+
    @getStreamingPagePattern: ( ) -> [ "http://*.justin.tv/*" ]
    
    @extractIdFromUrl: ( url ) ->

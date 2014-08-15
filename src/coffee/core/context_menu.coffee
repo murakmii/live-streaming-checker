@@ -53,7 +53,7 @@ chrome.contextMenus.onClicked.addListener ( data ) ->
    api_name = null
 
    # URLに各APIにおけるIDが含まれているかを調べる
-   for api in core.Supported
+   for api in core.getSupported( )
       if ( id = core.api[ "#{api_name = core.Util.toCamelCase api}Api" ].extractIdFromUrl data.pageUrl )?
          break
 
@@ -101,7 +101,7 @@ class ContextMenu
 
       # コンテキストメニューを表示するページを視聴ページに絞る
       urls = [ ]
-      for api in core.Supported
+      for api in core.getSupported( )
          urls = urls.concat core.api[ "#{core.Util.toCamelCase api}Api" ].getStreamingPagePattern( )
       top_menu.documentUrlPatterns = urls
 

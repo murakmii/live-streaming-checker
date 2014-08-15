@@ -217,7 +217,7 @@ class GroupEditor extends Backbone.View
       @_select "main"
 
       # 配信情報検索フォームのAPI一覧を初期化
-      for api in core.Supported
+      for api in core.getSupported( )
          $( document.main_config_footer.api ).append "<option value=\"#{api}\">#{i18n api}</option>"
 
       default_text = i18n "#{document.main_config_footer.api.value}_search_box"

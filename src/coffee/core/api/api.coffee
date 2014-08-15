@@ -2,6 +2,8 @@
 
 class Api
 
+   @hasDeprecated: ( ) -> false
+
    @getStreamingPagePattern: ( ) ->
       throw new Error "Api::getStreamingPagePattern hasn't implemented"
 
