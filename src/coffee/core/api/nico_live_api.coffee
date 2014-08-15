@@ -33,7 +33,7 @@ class NicoLiveApi extends core.api.Api
       bi = new core.BroadcastingInfo
       # bi.setId パース後設定
       bi.setApiName API_NAME
-      bi.setName if ( match = text.match /<h1\s+id="community_name">(.+)<\/h1>/ )? then match[ 1 ] else ""
+      bi.setName if ( match = text.match /<h1\s+id="community_name">(.+)<\/h1>/ )? then match[ 1 ].replace(/&#039;/, "'") else ""
       # bi.setUrl パース後設定
       bi.setLive text.indexOf( "id=\"now_live\"" ) isnt -1
 
