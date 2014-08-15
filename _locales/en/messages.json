@@ -235,6 +235,14 @@
       "message": "User Name"
    },
 
+   "fc2_live": {
+      "message": "FC2 Live"
+   },
+
+   "fc2_live_search_box": {
+      "message": "Streaming ID"
+   },
+
    "menu_top": {
       "message": "Add broadcasting to group"
    },
