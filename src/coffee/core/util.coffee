@@ -52,5 +52,10 @@ class Util
 
       return os_name
 
+   # ブラウザのバージョンを取得
+   @getBrowserVersion: ( ) ->
+      result = navigator.appVersion.match /Chrome\/(\d+)/
+      return if result? then parseInt result[ 1 ] else 0
+
 @core ?= { }
 @core.Util = Util
