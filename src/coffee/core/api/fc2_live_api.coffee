@@ -3,7 +3,7 @@
 i18n = chrome.i18n.getMessage
 API_NAME = "fc2_live"
 
-_queue = new core.RequestQueue 30000
+_queue = new core.RequestQueue 10000
 
 class Fc2LiveApi extends core.api.Api
 
