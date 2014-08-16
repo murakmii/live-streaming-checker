@@ -321,14 +321,6 @@
       "message": "if you add broadcasting on USTREAM, please search with channel name that is displayed in location bar on USTREAM watching page.<br /><img src=\"/image/option/en/id_for_ustream.png\" />"
    },
 
-   "option_help_add_from_justin": {
-      "message": "Case: add broadcasting on Justin"
-   },
-
-   "option_help_add_from_justin_description": {
-      "message": "if you add broadcasting on Justin, please search with channel name that is displayed in location bar on Justin watching page.<br /><img src=\"/image/option/en/id_for_justin.png\" />"
-   },
-
    "option_help_add_from_twitch": {
       "message": "Case: add broadcasting on Twitch"
    },

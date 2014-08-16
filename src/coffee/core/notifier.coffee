@@ -50,6 +50,7 @@ class Notifier
       return message
 
    # HTML5標準の通知機能を用いる
+   # 特に下位互換を求めない場合、_richを使用すること
    @_legacy: ( groups ) ->
       notified = Notifier._selectNotifiedGroup groups
       if window.webkitNotifications?
@@ -100,9 +101,10 @@ class Notifier
       groups   = ( core.Storage.getGroup gid for gid in gidArray )
       os_name  = core.Util.getOSName( )
 
-      # Chrome OS, Windowsの場合は多機能な通知機能が実装されているのでそれを使う
+      # Chrome 28以上、それ以下の場合はChrome OSかWindowsである場合にChrome APIの通知、
+      # そうでない場合はHTML標準の通知を用いる
       if core.Storage.getConfig "do_notify"
-         if os_name is "cros" or os_name is "win"
+         if core.Util.getBrowserVersion( ) >= 28 or ( os_name is "cros" or os_name is "win" )
             Notifier._rich groups
          else
             Notifier._legacy groups
@@ -117,7 +119,9 @@ class Notifier
 
    @notifySimple: ( title, message ) ->
       os_name = core.Util.getOSName( )
-      if os_name is "cros" or os_name is "win"
+
+      # notifyLiveメソッドと同様の使用API切り分け
+      if core.Util.getBrowserVersion( ) >= 28 or ( os_name is "cros" or os_name is "win" )
          chrome.notifications.create SIMPLE_NOTIFICATION_ID,
             type     : "basic"
             title    : title
