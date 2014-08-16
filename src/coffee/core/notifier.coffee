@@ -50,6 +50,7 @@ class Notifier
       return message
 
    # HTML5標準の通知機能を用いる
+   # 2014/8/16時点で、webkitNotificationは既に存在していないため、以降はこのメソッドを使用しないこと
    @_legacy: ( groups ) ->
       notified = Notifier._selectNotifiedGroup groups
       if window.webkitNotifications?
@@ -97,15 +98,8 @@ class Notifier
 
    # 新たにライブ中となったグループIDを配列で受け取り、それを通知する
    @notifyLive: ( gidArray ) ->
-      groups   = ( core.Storage.getGroup gid for gid in gidArray )
-      os_name  = core.Util.getOSName( )
-
-      # Chrome OS, Windowsの場合は多機能な通知機能が実装されているのでそれを使う
-      if core.Storage.getConfig "do_notify"
-         if os_name is "cros" or os_name is "win"
-            Notifier._rich groups
-         else
-            Notifier._legacy groups
+      groups = ( core.Storage.getGroup gid for gid in gidArray )
+      Notifier._rich groups if core.Storage.getConfig "do_notify"
 
    # 拡張のバッジでライブ中のグループ数を通知する
    @notifyBadge: ( ) ->
@@ -116,19 +110,12 @@ class Notifier
          chrome.browserAction.setBadgeText text: ""
 
    @notifySimple: ( title, message ) ->
-      os_name = core.Util.getOSName( )
-      if os_name is "cros" or os_name is "win"
-         chrome.notifications.create SIMPLE_NOTIFICATION_ID,
-            type     : "basic"
-            title    : title
-            iconUrl  : NOTIFY_DEFAULT_ICON
-            message  : message
-         , ( ) ->
-      else
-         webkitNotifications.createNotification(
-            NOTIFY_DEFAULT_ICON,
-            title,
-            message
-         ).show( )
+      chrome.notifications.create SIMPLE_NOTIFICATION_ID,
+         type     : "basic"
+         title    : title
+         iconUrl  : NOTIFY_DEFAULT_ICON
+         message  : message
+      , ( ) ->
+      
 
 @core.Notifier = Notifier
