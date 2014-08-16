@@ -313,14 +313,6 @@
       "message": "USTREAMの配信を追加する場合は、視聴ページのロケーションバーに表示されるチャンネル名で検索します。<br /><img src=\"/image/option/ja/id_for_ustream.png\" />"
    },
 
-   "option_help_add_from_justin": {
-      "message": "Justin上の配信を追加する場合"
-   },
-
-   "option_help_add_from_justin_description": {
-      "message": "Justinの配信を追加する場合は、視聴ページのロケーションバーに表示されるチャンネル名で検索します。<br /><img src=\"/image/option/ja/id_for_justin.png\" />"
-   },
-
    "option_help_add_from_twitch": {
       "message": "Twitch上の配信を追加する場合"
    },
