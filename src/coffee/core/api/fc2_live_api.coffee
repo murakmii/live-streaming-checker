@@ -24,7 +24,7 @@ class Fc2LiveApi extends core.api.Api
    @getStreamingPagePattern: ( ) -> [ "http://live.fc2.com/*" ]
 
    @extractIdFromUrl: ( url ) ->
-      if ( matched = url.match /^https?:\/\/live\.fc2\.com\/([\w\d_\-]+)\/?$/ )
+      if ( matched = url.match /^https?:\/\/live\.fc2\.com\/([\d_\-]+)\/?$/ )
          return matched[ 1 ]
       else
          return null
