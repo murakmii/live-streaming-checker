@@ -353,6 +353,13 @@
       "message": "if you add broadcasting on Twitcasting, please search with user name that is displayed in location bar on Twitcasting watching page.<br /><img src=\"/image/option/en/id_for_twitcasting.png\" />"
    },
 
+   "option_help_add_from_fc2": {
+      "message": "Case: add broadcasting on FC2 Live"
+   },
+   "option_help_add_from_fc2_description": {
+      "message": "if you add broadcasting on FC2 Live, please search with stream id that is displayed in location bar on FC2 Live watching page.<br /><img src=\"/image/option/en/id_for_fc2.png\" />"
+   },
+
    "option_help_create_group_description" :{
       "message": "Let's create group in page that was opened by \"Add\" button.<br />\"Group Name\" is required for group. You can add broadcasting more than 1 to group.<br />if broadcasting that was added in group became live, this extension do notify that to desktop.<br />You can do searching and adding broadcasting from search form.<br /><img src=\"/image/option/en/broadcasting_form.png\" />"
    },

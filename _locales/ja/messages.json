@@ -353,6 +353,13 @@
       "message": "Twitcastingの配信を追加する場合は、視聴ページのロケーションバーに表示されるユーザー名で検索します。<br /><img src=\"/image/option/ja/id_for_twitcasting.png\" />"
    },
 
+   "option_help_add_from_fc2": {
+      "message": "FC2ライブ上の配信を追加する場合"
+   },
+   "option_help_add_from_fc2_description": {
+      "message": "FC2ライブの配信を追加する場合は、視聴ページのロケーションバーに表示される、数字からなる配信IDで検索します。<br /><img src=\"/image/option/ja/id_for_fc2.png\" />"
+   },
+
    "option_help_create_group_description" :{
       "message": "\"追加\"をクリックして開いた画面でグループを作成します。<br />\"グループ名\"は必ず指定する必要があります。その他、グループには配信を1つ以上含めることができます。<br />グループに含めた配信がライブ中になると、Live Streaming Checkerはその配信を含むグループを通知します。<br />配信は次の検索フォームから検索して追加します。<br /><img src=\"/image/option/ja/broadcasting_form.png\" />"
    },
