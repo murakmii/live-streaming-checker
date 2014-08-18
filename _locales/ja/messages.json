@@ -235,6 +235,14 @@
       "message": "ユーザー名"
    },
 
+   "fc2_live": {
+      "message": "FC2ライブ"
+   },
+
+   "fc2_live_search_box": {
+      "message": "配信ID"
+   },
+
    "menu_top": {
       "message": "配信をグループへ追加"
    },
@@ -343,6 +351,13 @@
 
    "option_help_add_from_twitcasting_description": {
       "message": "Twitcastingの配信を追加する場合は、視聴ページのロケーションバーに表示されるユーザー名で検索します。<br /><img src=\"/image/option/ja/id_for_twitcasting.png\" />"
+   },
+
+   "option_help_add_from_fc2": {
+      "message": "FC2ライブ上の配信を追加する場合"
+   },
+   "option_help_add_from_fc2_description": {
+      "message": "FC2ライブの配信を追加する場合は、視聴ページのロケーションバーに表示される、数字からなる配信IDで検索します。<br /><img src=\"/image/option/ja/id_for_fc2.png\" />"
    },
 
    "option_help_create_group_description" :{

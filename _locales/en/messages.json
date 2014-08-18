@@ -235,6 +235,14 @@
       "message": "User Name"
    },
 
+   "fc2_live": {
+      "message": "FC2 Live"
+   },
+
+   "fc2_live_search_box": {
+      "message": "Streaming ID"
+   },
+
    "menu_top": {
       "message": "Add broadcasting to group"
    },
@@ -343,6 +351,13 @@
 
    "option_help_add_from_twitcasting_description": {
       "message": "if you add broadcasting on Twitcasting, please search with user name that is displayed in location bar on Twitcasting watching page.<br /><img src=\"/image/option/en/id_for_twitcasting.png\" />"
+   },
+
+   "option_help_add_from_fc2": {
+      "message": "Case: add broadcasting on FC2 Live"
+   },
+   "option_help_add_from_fc2_description": {
+      "message": "if you add broadcasting on FC2 Live, please search with stream id that is displayed in location bar on FC2 Live watching page.<br /><img src=\"/image/option/en/id_for_fc2.png\" />"
    },
 
    "option_help_create_group_description" :{

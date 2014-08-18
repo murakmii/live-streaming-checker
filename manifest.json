@@ -28,6 +28,7 @@
       "scripts"      : [ 
          "/src/js/core/define.js",
          "/src/js/core/util.js",
+         "/src/js/core/request_queue.js",
          "/src/js/core/broadcasting_info.js",
          "/src/js/core/group.js",
          "/src/js/core/notifier.js",
@@ -38,6 +39,7 @@
          "/src/js/core/api/nico_live_api.js",
          "/src/js/core/api/stickam_api.js",
          "/src/js/core/api/twitcasting_api.js",
+         "/src/js/core/api/fc2_live_api.js",
          "/src/js/core/storage.js",
          "/src/js/core/updater.js",
          "/src/js/core/notifier.js",
