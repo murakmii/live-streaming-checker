@@ -243,6 +243,13 @@
       "message": "Streaming ID"
    },
 
+   "cavetube": {
+      "message": "CaveTube"
+   },
+   "cavetube_search_box": {
+      "message": "User Name"
+   },
+
    "menu_top": {
       "message": "Add broadcasting to group"
    },

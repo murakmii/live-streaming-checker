@@ -1,7 +1,7 @@
 "use strict"
 
 @core =
-   Supported: [ "ustream", "justin", "twitch", "nico_live", "stickam", "twitcasting", "fc2_live" ]
+   Supported: [ "ustream", "justin", "twitch", "nico_live", "stickam", "twitcasting", "fc2_live", "cavetube" ]
 
    getSupported: ( ) ->
       supported = [ ]

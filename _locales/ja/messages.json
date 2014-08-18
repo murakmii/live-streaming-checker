@@ -243,6 +243,13 @@
       "message": "配信ID"
    },
 
+   "cavetube": {
+      "message": "CaveTube"
+   },
+   "cavetube_search_box": {
+      "message": "ユーザー名"
+   },
+
    "menu_top": {
       "message": "配信をグループへ追加"
    },
