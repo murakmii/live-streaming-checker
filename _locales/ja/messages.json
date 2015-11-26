@@ -143,7 +143,7 @@
          "count": {
             "content": "$1"
          }
-      } 
+      }
    },
 
    "live_in": {
@@ -152,7 +152,7 @@
          "count": {
             "content": "$1"
          }
-      } 
+      }
    },
 
    "view_on_optional": {
@@ -241,6 +241,18 @@
 
    "fc2_live_search_box": {
       "message": "配信ID"
+   },
+
+   "youtube": {
+      "message": "YouTube Live"
+   },
+
+   "youtube_search_box": {
+      "message": "チャンネルID"
+   },
+
+   "youtube_channel_not_found": {
+      "message": "指定のチャンネルが見つかりませんでした"
    },
 
    "menu_top": {
