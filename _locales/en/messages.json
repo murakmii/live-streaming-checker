@@ -372,6 +372,13 @@
       "message": "if you add broadcasting on FC2 Live, please search with stream id that is displayed in location bar on FC2 Live watching page.<br /><img src=\"/image/option/en/id_for_fc2.png\" />"
    },
 
+   "option_help_add_from_youtube": {
+      "message": "Case: add broadcasting on YouTube Live"
+   },
+   "option_help_add_from_youtube_description": {
+      "message": "if you add boroadcasting on YouTube Live, please search with channel id that is displayed in location bar on YouTube channel page.<br /><img src=\"/image/option/id_for_youtube.png\" />"
+   },
+
    "option_help_create_group_description" :{
       "message": "Let's create group in page that was opened by \"Add\" button.<br />\"Group Name\" is required for group. You can add broadcasting more than 1 to group.<br />if broadcasting that was added in group became live, this extension do notify that to desktop.<br />You can do searching and adding broadcasting from search form.<br /><img src=\"/image/option/en/broadcasting_form.png\" />"
    },
