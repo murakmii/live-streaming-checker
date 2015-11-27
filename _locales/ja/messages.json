@@ -143,7 +143,7 @@
          "count": {
             "content": "$1"
          }
-      } 
+      }
    },
 
    "live_in": {
@@ -152,7 +152,7 @@
          "count": {
             "content": "$1"
          }
-      } 
+      }
    },
 
    "view_on_optional": {
@@ -241,6 +241,18 @@
 
    "fc2_live_search_box": {
       "message": "配信ID"
+   },
+
+   "youtube": {
+      "message": "YouTube Live"
+   },
+
+   "youtube_search_box": {
+      "message": "チャンネルID"
+   },
+
+   "youtube_channel_not_found": {
+      "message": "指定のチャンネルが見つかりませんでした"
    },
 
    "menu_top": {
@@ -358,6 +370,13 @@
    },
    "option_help_add_from_fc2_description": {
       "message": "FC2ライブの配信を追加する場合は、視聴ページのロケーションバーに表示される、数字からなる配信IDで検索します。<br /><img src=\"/image/option/ja/id_for_fc2.png\" />"
+   },
+
+   "option_help_add_from_youtube": {
+      "message": "YouTube Liveの配信を追加する場合"
+   },
+   "option_help_add_from_youtube_description": {
+      "message": "YouTube Liveの配信を追加する場合は、チャンネルページのロケーションバーに表示されるチャンネルIDで検索します。<br /><img src=\"/image/option/id_for_youtube.png\" />"
    },
 
    "option_help_create_group_description" :{

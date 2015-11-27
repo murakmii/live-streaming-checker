@@ -7,13 +7,17 @@ _repeated      = 0
 class Util
 
    # GETリクエストを投げる
-   @getRequest: ( url, fn ) ->
+   @getRequest: ( url, fn, timeout = 7000 ) ->
       xhr = new XMLHttpRequest
       xhr.open "GET", url, true
 
       xhr.onreadystatechange = ( ) ->
          if xhr.readyState is 4
             fn( xhr.status is 200, xhr )
+
+      xhr.timeout = timeout
+      xhr.ontimeout = ( ) ->
+         fn( false, xhr )
 
       xhr.send null
 

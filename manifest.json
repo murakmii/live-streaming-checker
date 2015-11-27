@@ -2,7 +2,7 @@
    "manifest_version": 2,
 
    "name"            : "Live Streaming Checker",
-   "version"         : "0.9.12",
+   "version"         : "0.9.13",
    "default_locale"  : "en",
    "description"     : "__MSG_description__",
 
@@ -25,7 +25,7 @@
 
    "background": {
       "persistent"   : true,
-      "scripts"      : [ 
+      "scripts"      : [
          "/src/js/core/define.js",
          "/src/js/core/util.js",
          "/src/js/core/request_queue.js",
@@ -40,7 +40,9 @@
          "/src/js/core/api/stickam_api.js",
          "/src/js/core/api/twitcasting_api.js",
          "/src/js/core/api/fc2_live_api.js",
+         "/src/js/core/api/youtube_api.js",
          "/src/js/core/storage.js",
+         "/src/js/core/config_file.js",
          "/src/js/core/updater.js",
          "/src/js/core/notifier.js",
          "/src/js/core/context_menu.js",
