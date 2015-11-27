@@ -38,7 +38,7 @@ class NicoLiveApi extends core.api.Api
       bi.setLive text.indexOf( "id=\"now_live\"" ) isnt -1
 
       if ( match = text.match /<img\s+[^>]*class\s*=\s*"comm_img_L"[^>]*>/ )?
-         bi.setImageUrl ( match[ 0 ].match /src="([^\?"]+)\??[^"]*"/ )[ 1 ]
+         bi.setImageUrl ( match[ 0 ].match /src="([^\"]+)"/ )[ 1 ]
 
       return bi
 
